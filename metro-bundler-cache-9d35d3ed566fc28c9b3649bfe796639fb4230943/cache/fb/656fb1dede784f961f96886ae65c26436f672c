@@ -1,0 +1,256 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Medbook = undefined;
+
+var _scale = require('./scale');
+
+var Colors = {
+  firstTextColor: '#8ADFCC',
+  secondTextColor: '#0B3356',
+  thirdTextColor: '#F26C50',
+  fourthTextColor: '#5A5A5A',
+  fifthTextColor: '#F26C50',
+
+  firstBackgroundColor: '#8ADFCC',
+  secondBackgroundColor: '#0B3356',
+  thirdBackgroundColor: '#F26C50',
+  fourthBackgroundColor: '#5A5A5A',
+  fifthBackgroundColor: '#2FC3B6',
+  sixthBackgroundColor: '#7D838C',
+  seventhBackgroundColor: '#E27359',
+  eighthBackgroundColor: '#FFF67C',
+  ninthBackgroundColor: '#A1E3EE',
+  tenthBackground: '#316F8C',
+
+  accent: '#ff2824',
+  primary: '#f64e59',
+  success: '#3bd555',
+  disabled: '#cacaca',
+  foreground: '#212121',
+  alterForeground: '#707070',
+  inverseForeground: '#ffffff',
+  secondaryForeground: '#91959E',
+  hintForeground: '#969696',
+  thirdBackground: '#5B5E91',
+  fourthBackground: '#808080',
+  sixBackground: '#D0CECE',
+  sevenBackground: '#eaeaec',
+  background: '#ffffff',
+  alterBackground: '#f2f2f2',
+  overlayBackground: '#00000057',
+  neutralBackground: '#f2f2f2',
+  fadedBackground: '#e5e5e5',
+  viewBackground: '#f8f8f8',
+  ratingBackground: '#BFC5D5',
+  border: '#aaaaaa',
+  bordersecond: '#cecdd2',
+  twitter: '#41abe1',
+  google: '#e94335',
+  facebook: '#3b5998',
+  chooseColor: '#EEC822',
+  firstMedbookColor: '#4C576A',
+  secondMedbookColor: '#00B97E',
+  placeholderTextSecond: '#B5B5BC',
+  shadow: '#cdcdcd',
+  textFourth: '#4682B4',
+  textFifth: '#7C838D',
+  textSix: '#cccad0',
+  textSeven: '#A9ACB3',
+  textEight: '#787878',
+  textNine: '#5D5D5D',
+  buttonThird: '#6f7398',
+  gradientBaseBegin: '#ff9147',
+  gradientBaseEnd: '#ff524c',
+  gradientVisaBegin: '#63e2ff',
+  gradientVisaEnd: '#712ec3',
+  gradientMasterBegin: '#febb5b',
+  gradientMasterEnd: '#f24645',
+  gradientAxpBegin: '#42e695',
+  gradientAxpEnd: '#3bb2bb',
+
+  faded: '#e5e5e5',
+  icon: '#c2c2c2',
+  neutral: '#f2f2f2',
+  info: '#19bfe5',
+  warning: '#feb401',
+  danger: '#ed1c4d',
+  starsStat: '#2ab5fa',
+  tweetsStat: '#ffc61c',
+  likesStat: '#5468ff',
+  doughnutFirst: '#8a98ff',
+  doughnutSecond: '#ffd146',
+  doughnutThird: '#c2d521',
+  doughnutFourth: '#ff6b5c',
+  followersProgress: '#c2d521',
+  followersFirst: '#b3e5fc',
+  followersSecond: '#81d4fa',
+  followersThird: '#4fc3f7',
+  followersFourth: '#42a5f5',
+  chartsAreaStroke: '#097fe5',
+  chartsAreaFill: '#d6ecff',
+  enterBtn: '#2472B9'
+};
+
+var Fonts = {
+  light: 'Comfortaa-Light',
+  regular: 'Comfortaa-Regular',
+  bold: 'Comfortaa-Bold',
+  logo: 'Righteous-Regular'
+};
+
+var FontBaseValue = (0, _scale.scale)(18);
+
+var Medbook = exports.Medbook = {
+  name: 'light',
+  colors: {
+    textFirst: Colors.firstTextColor,
+    textSecond: Colors.secondTextColor,
+    textThird: Colors.thirdTextColor,
+    textFourth: Colors.fourthTextColor,
+    textFifth: Colors.fifthTextColor,
+
+    backgroundFirst: Colors.firstBackgroundColor,
+    backgroundSecond: Colors.secondBackgroundColor,
+    backgroundThird: Colors.thirdBackgroundColor,
+    backgroundFourth: Colors.fourthBackgroundColor,
+    backgroundFifth: Colors.fifthBackgroundColor,
+    backgroundSixth: Colors.sixthBackgroundColor,
+    backgroundSeventh: Colors.seventhBackgroundColor,
+    backgroundEighth: Colors.eighthBackgroundColor,
+    backgroundNinth: Colors.ninthBackgroundColor,
+    backgroundTenth: Colors.tenthBackground,
+
+    accent: Colors.accent,
+    primary: Colors.primary,
+    disabled: Colors.disabled,
+    twitter: Colors.twitter,
+    google: Colors.google,
+    facebook: Colors.facebook,
+    brand: Colors.accent,
+    text: {
+      first: Colors.firstMedbookColor,
+      second: Colors.secondMedbookColor,
+      base: Colors.foreground,
+      secondary: Colors.secondaryForeground,
+      accent: Colors.accent,
+      inverse: Colors.inverseForeground,
+      hint: Colors.alterForeground,
+      fourth: Colors.textFourth,
+      fifth: Colors.textFifth,
+      six: Colors.textSix,
+      seven: Colors.textSeven,
+      eight: Colors.textEight,
+      nine: Colors.textNine,
+      enterBtn: Colors.enterBtn
+
+    },
+    input: {
+      text: Colors.alterForeground,
+      background: Colors.background,
+      label: Colors.secondaryForeground,
+      placeholder: Colors.secondaryForeground,
+      placeholderSecond: Colors.placeholderTextSecond
+    },
+    screen: {
+      base: Colors.background,
+      alter: Colors.alterBackground,
+      scroll: Colors.alterBackground,
+      bold: Colors.alterBackground,
+      overlay: Colors.overlayBackground,
+      view: Colors.viewBackground,
+      choose: Colors.chooseColor,
+      third: Colors.thirdBackground,
+      fourth: Colors.fourthBackground,
+      six: Colors.sixBackground,
+      rating: Colors.ratingBackground,
+      seven: Colors.sevenBackground
+    },
+    button: {
+      back: Colors.background,
+      underlay: Colors.neutralBackground,
+      highlight: Colors.primary,
+      third: Colors.buttonThird
+    },
+    border: {
+      base: Colors.border,
+      second: Colors.bordersecond,
+      accent: Colors.accent,
+      secondary: Colors.secondaryForeground,
+      txtInput: Colors.shadow
+    },
+    control: {
+      background: Colors.background
+    },
+    badge: {
+      likeBackground: Colors.primary,
+      likeForeground: Colors.inverseForeground,
+      plusBackground: Colors.success,
+      plusForeground: Colors.inverseForeground
+    },
+    chat: {
+      messageInBackground: Colors.neutralBackground,
+      messageOutBackground: Colors.fadedBackground,
+      text: Colors.foreground
+    },
+    gradients: {
+      base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
+      visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
+      mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
+      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd]
+    },
+    dashboard: {
+      stars: Colors.starsStat,
+      tweets: Colors.tweetsStat,
+      likes: Colors.likesStat
+    },
+    charts: {
+      followersProgress: Colors.followersProgress,
+      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
+      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      area: {
+        stroke: Colors.chartsAreaStroke,
+        fill: Colors.chartsAreaFill
+      }
+    },
+    shadow: {
+      base: Colors.shadow
+    }
+  },
+  fonts: {
+    sizes: {
+      h0: (0, _scale.scale)(32),
+      h1: (0, _scale.scale)(26),
+      h2: (0, _scale.scale)(24),
+      h3: (0, _scale.scale)(20),
+      h4: (0, _scale.scale)(18),
+      h5: (0, _scale.scale)(16),
+      h6: (0, _scale.scale)(15),
+      p0: (0, _scale.scale)(17),
+      p1: (0, _scale.scale)(16),
+      p2: (0, _scale.scale)(15),
+      p3: (0, _scale.scale)(14),
+      p4: (0, _scale.scale)(13),
+      p5: (0, _scale.scale)(12),
+      p6: (0, _scale.scale)(10),
+      p7: (0, _scale.scale)(11),
+      p8: (0, _scale.scale)(9),
+      base: FontBaseValue,
+      small: FontBaseValue * .8,
+      medium: FontBaseValue,
+      large: FontBaseValue * 1.2,
+      xlarge: FontBaseValue / 0.75,
+      xxlarge: FontBaseValue * 1.6
+    },
+    lineHeights: {
+      medium: 18,
+      big: 24
+    },
+    family: {
+      regular: Fonts.regular,
+      light: Fonts.light,
+      bold: Fonts.bold,
+      logo: Fonts.logo
+    }
+  }
+};

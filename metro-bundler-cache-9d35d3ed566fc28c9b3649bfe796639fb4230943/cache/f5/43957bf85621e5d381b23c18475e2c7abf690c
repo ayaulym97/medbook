@@ -1,0 +1,494 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.profile = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/screens/cabinet/profile/userProfile.js';
+
+var _reactNative = require('react-native');
+
+var _reactNavigation = require('react-navigation');
+
+var _theme = require('../../../config/theme');
+
+var _reactNativeMaskedText = require('react-native-masked-text');
+
+var _scale = require('../../../config/scale');
+
+var _AuthService = require('../../../data/services/AuthService');
+
+var _AuthService2 = _interopRequireDefault(_AuthService);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    profile: {
+        displayName: 'profile'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/screens/cabinet/profile/userProfile.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var profile = exports.profile = _wrapComponent('profile')((_temp = _class = function (_Component) {
+    _inherits(profile, _Component);
+
+    function profile(props) {
+        _classCallCheck(this, profile);
+
+        var _this = _possibleConstructorReturn(this, (profile.__proto__ || Object.getPrototypeOf(profile)).call(this, props));
+
+        _this.state = {
+            name: '',
+            surname: '',
+            phone: "",
+            editable: false,
+            focused: false
+        };
+        _this.logout = _this.logout.bind(_this);
+        _this.toggleEditable = _this.toggleEditable.bind(_this);
+        _this.getMe();
+        return _this;
+    }
+
+    _createClass(profile, [{
+        key: 'getMe',
+        value: function getMe() {
+            var _this2 = this;
+
+            var header;
+            return regeneratorRuntime.async(function getMe$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            header = {};
+                            _context.next = 3;
+                            return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('@user'));
+
+                        case 3:
+                            _context.t0 = _context.sent;
+                            header["Authorization"] = "Token " + _context.t0;
+
+
+                            _AuthService2.default.getMe(header).then(function (response) {
+                                _this2.setState({
+                                    phone: response.username,
+                                    name: response.full_name.split(' ')[0],
+                                    surname: response.full_name.split(' ')[1]
+                                });
+                            }, function (error) {});
+
+                        case 6:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, null, this);
+        }
+    }, {
+        key: 'logout',
+        value: function logout() {
+            _reactNative.AsyncStorage.removeItem('@user');
+            var resetActionLogOut = _reactNavigation.NavigationActions.reset({
+                index: 0,
+                key: null,
+                actions: [_reactNavigation.NavigationActions.navigate({ routeName: 'Authorization' })]
+            });
+
+            this.props.navigation.dispatch(resetActionLogOut);
+        }
+    }, {
+        key: 'toggleEditable',
+        value: function toggleEditable() {
+            this.setState({
+                editable: !this.state.editable
+
+            });
+        }
+    }, {
+        key: 'toggleEditablePhone',
+        value: function toggleEditablePhone() {
+            this.setState({
+                editablePhone: !this.state.editablePhone
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            return _react3.default.createElement(
+                _reactNative.KeyboardAvoidingView,
+                { behavior: 'position', style: styles.keyboardStyle, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 84
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.container, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 85
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.header, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 86
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, {
+                            style: styles.logo,
+                            source: require('../../../assets/icons/3va.png'),
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 87
+                            }
+                        }),
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.firstTxt, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 91
+                                }
+                            },
+                            '\u041C\u041E\u0418 \u0414\u0410\u041D\u041D\u042B\u0415'
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: { justifyContent: 'space-around', height: (0, _scale.scale)(270) }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 93
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: { flexDirection: 'column' }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 94
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: styles.text, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 95
+                                    }
+                                },
+                                '\u0418\u041C\u042F'
+                            ),
+                            _react3.default.createElement(_reactNative.TextInput, { style: [styles.input, styles.inputFirstType],
+                                onChangeText: function onChangeText(name) {
+                                    return _this3.setState({ name: name });
+                                },
+                                value: this.state.surname,
+                                editable: false,
+                                underlineColorAndroid: 'transparent',
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 96
+                                }
+                            })
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: { flexDirection: 'column' }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 103
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: styles.text, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 104
+                                    }
+                                },
+                                '\u0424\u0410\u041C\u0418\u041B\u0418\u042F'
+                            ),
+                            _react3.default.createElement(_reactNative.TextInput, { style: [styles.input, styles.inputFirstType],
+                                onChangeText: function onChangeText(surname) {
+                                    return _this3.setState({ surname: surname });
+                                },
+                                value: this.state.name,
+                                editable: false, underlineColorAndroid: 'transparent',
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 105
+                                }
+                            })
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: { flexDirection: 'column' }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 111
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                { style: styles.viewStyleS, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 112
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    { style: styles.text, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 113
+                                        }
+                                    },
+                                    '\u041D\u041E\u041C\u0415\u0420 \u0422\u0415\u041B\u0415\u0424\u041E\u041D\u0410'
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                { style: styles.viewStyleS, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 124
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.TextInput, { style: [styles.input, styles.inputSecondType],
+                                    value: '+7',
+                                    editable: false, underlineColorAndroid: 'transparent',
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 125
+                                    }
+                                }),
+                                _react3.default.createElement(_reactNativeMaskedText.TextInputMask, { style: [styles.input, styles.inputThirdType],
+                                    type: 'custom',
+                                    onChangeText: function onChangeText(phone) {
+                                        return _this3.setState({ phone: phone });
+                                    },
+                                    value: this.state.phone,
+                                    options: {
+                                        mask: '(999)-999-99-99'
+                                    },
+
+                                    editable: false,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 129
+                                    }
+                                })
+                            )
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.TouchableHighlight,
+                        { style: styles.button, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 142
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.textButton,
+                                onPress: function onPress() {
+                                    return _this3.logout();
+                                },
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 143
+                                }
+                            },
+                            '\u0412\u042B\u0419\u0422\u0418'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return profile;
+}(_react2.Component), _class.navigationOptions = function (_ref) {
+    var navigation = _ref.navigation;
+    return {
+        header: null,
+        tabBarIcon: function tabBarIcon(_ref2) {
+            var focused = _ref2.focused;
+            return _react3.default.createElement(_reactNative.Image, { source: focused ? require('../../../assets/icons/user_active.png') : require('../../../assets/icons/profile.png'),
+                style: { height: (0, _scale.scale)(21), width: (0, _scale.scale)(17) },
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 29
+                }
+            });
+        }
+    };
+}, _temp));
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flex: 1
+    },
+    header: {
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    logo: {
+        marginTop: '15%',
+        height: (0, _scale.scale)(30.5),
+        width: (0, _scale.scale)(45.1)
+    },
+    input: {
+        height: (0, _scale.scale)(50),
+        borderColor: _theme.Medbook.colors.border.txtInput,
+        borderWidth: 1,
+        shadowColor: _theme.Medbook.colors.shadow.base,
+        borderRadius: 2,
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity: 1.0,
+        color: 'black'
+    },
+    inputFirstType: {
+        width: (0, _scale.scale)(300),
+        paddingHorizontal: '3%'
+    },
+    inputSecondType: {
+        width: (0, _scale.scale)(55),
+        textAlign: 'center'
+    },
+    firstTxt: {
+        marginTop: '5%',
+        color: 'rgb(63,75,98)',
+        fontSize: _theme.Medbook.fonts.sizes.h4,
+        fontWeight: 'bold',
+        textAlign: 'center'
+
+    },
+    inputThirdType: {
+        width: (0, _scale.scale)(220),
+        paddingHorizontal: '3%'
+
+    },
+    button: {
+        width: (0, _scale.scale)(110),
+        height: (0, _scale.scale)(35),
+        borderRadius: (0, _scale.scale)(100),
+        backgroundColor: _theme.Medbook.colors.screen.fourth,
+        marginVertical: '5%'
+    },
+    textButton: {
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center',
+        marginVertical: '8%',
+        width: '60%',
+        marginHorizontal: '20%'
+    },
+    text: {
+        fontWeight: 'bold',
+        marginBottom: '1.5%',
+        color: 'rgb(63,75,98)',
+        fontSize: (0, _scale.scale)(13)
+    },
+    textInputInitial: {
+        color: 'rgb(63,75,98)'
+    },
+    row: {
+        flexDirection: 'row'
+    },
+    keyboardStyle: {
+        flex: 1,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: 'white'
+
+    },
+    viewStyle: {
+        width: (0, _scale.scale)(300),
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    textMedicalRecord: {
+        width: '95%',
+        height: '100%',
+        color: '#A9ACB3',
+        fontSize: (0, _scale.scale)(15),
+        textAlignVertical: 'center',
+        paddingVertical: '3%'
+
+    },
+
+    containerSecond: {
+        backgroundColor: 'white',
+        alignItems: 'center',
+        height: '100%'
+    },
+    backIcon: {
+        left: 3,
+        top: 3,
+        width: '10%'
+    },
+    headerText: {
+        width: '87%',
+        fontWeight: '500',
+        fontSize: (0, _scale.scale)(18),
+        paddingHorizontal: '10%',
+        color: 'rgb(63,75,98)'
+    },
+    cardStyle: {
+        width: '100%',
+        height: '40%',
+        backgroundColor: '#f2f2f2',
+        flexDirection: 'column',
+        paddingHorizontal: '3%',
+        borderRadius: 3,
+        borderColor: '#cecdd2',
+        borderWidth: 1,
+        marginVertical: '2%',
+        justifyContent: 'space-around'
+    },
+    viewStyleS: {
+        width: (0, _scale.scale)(300),
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    }
+});
+
+var userProfile = (0, _reactNavigation.StackNavigator)({
+    profile: {
+        screen: profile
+    }
+}, {
+    headerMode: 'none'
+});
+
+exports.default = userProfile;

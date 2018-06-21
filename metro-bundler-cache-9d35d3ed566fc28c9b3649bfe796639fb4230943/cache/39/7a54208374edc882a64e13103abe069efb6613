@@ -1,0 +1,38 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _HTTPClient = require("../HTTPClient");
+
+var _HTTPClient2 = _interopRequireDefault(_HTTPClient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DoctorService = {
+    getSpecialities: function getSpecialities() {
+        return _HTTPClient2.default.get("list_speciality/");
+    },
+    postDoctorWorkTime: function postDoctorWorkTime(data) {
+        return _HTTPClient2.default.post("request/client_confirm/", data);
+    },
+    doctorRequest: function doctorRequest(data) {
+        return _HTTPClient2.default.post("request/create_doctor_request/", data);
+    },
+    getDoctorProfile: function getDoctorProfile(doctorId) {
+        return _HTTPClient2.default.get("doctor/" + doctorId);
+    },
+    createRequest: function createRequest(data) {
+        return _HTTPClient2.default.post("request/", data);
+    },
+    getResults: function getResults(id) {
+        return _HTTPClient2.default.get("request/get_requests/?request=" + id);
+    },
+    getProcedures: function getProcedures() {
+        return _HTTPClient2.default.get("list_service/?type=0&all=0");
+    },
+    getSurveys: function getSurveys() {
+        return _HTTPClient2.default.get("list_service/?type=1&all=0");
+    }
+};
+
+exports.default = DoctorService;

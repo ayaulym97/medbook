@@ -1,0 +1,124 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require("react");
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require("./../../react-transform-hmr/lib/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-calendar-strip/src/CalendarHeader.js";
+
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require("react-native");
+
+var _CalendarStyle = require("./Calendar.style.js");
+
+var _CalendarStyle2 = _interopRequireDefault(_CalendarStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  CalendarHeader: {
+    displayName: "CalendarHeader"
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-calendar-strip/src/CalendarHeader.js",
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var CalendarHeader = _wrapComponent("CalendarHeader")((_temp = _class = function (_Component) {
+  _inherits(CalendarHeader, _Component);
+
+  function CalendarHeader() {
+    _classCallCheck(this, CalendarHeader);
+
+    return _possibleConstructorReturn(this, (CalendarHeader.__proto__ || Object.getPrototypeOf(CalendarHeader)).apply(this, arguments));
+  }
+
+  _createClass(CalendarHeader, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+    }
+  }, {
+    key: "formatCalendarHeader",
+    value: function formatCalendarHeader(datesForWeek, calendarHeaderFormat) {
+      if (!datesForWeek || datesForWeek.length === 0) {
+        return "";
+      }
+
+      var firstDay = datesForWeek[0];
+      var lastDay = datesForWeek[datesForWeek.length - 1];
+      var monthFormatting = "";
+
+      if ((calendarHeaderFormat.match(/Mo/g) || []).length > 0) {
+        monthFormatting = "Mo";
+      } else {
+        if ((calendarHeaderFormat.match(/M/g) || []).length > 0) {
+          for (var i = (calendarHeaderFormat.match(/M/g) || []).length; i > 0; i--) {
+            monthFormatting += "M";
+          }
+        }
+      }
+
+      if (firstDay.month() === lastDay.month()) {
+        return firstDay.format(calendarHeaderFormat);
+      } else if (firstDay.year() !== lastDay.year()) {
+        return firstDay.format(calendarHeaderFormat) + " / " + lastDay.format(calendarHeaderFormat);
+      }
+
+      return (monthFormatting.length > 1 ? firstDay.format(monthFormatting) : "") + " " + (monthFormatting.length > 1 ? "/" : "") + " " + lastDay.format(calendarHeaderFormat);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var headerText = this.formatCalendarHeader(this.props.datesForWeek, this.props.calendarHeaderFormat);
+      return _react3.default.createElement(
+        _reactNative.Text,
+        {
+          style: [_CalendarStyle2.default.calendarHeader, { fontSize: this.props.fontSize }, this.props.calendarHeaderStyle],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 67
+          }
+        },
+        headerText
+      );
+    }
+  }]);
+
+  return CalendarHeader;
+}(_react2.Component), _class.propTypes = {
+  calendarHeaderFormat: _propTypes2.default.string.isRequired,
+  calendarHeaderStyle: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.number]),
+  datesForWeek: _propTypes2.default.array.isRequired
+}, _temp));
+
+exports.default = CalendarHeader;

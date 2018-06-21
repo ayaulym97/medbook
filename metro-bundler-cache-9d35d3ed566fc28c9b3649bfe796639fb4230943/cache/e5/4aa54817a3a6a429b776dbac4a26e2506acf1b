@@ -1,0 +1,4 @@
+module.exports = [{
+    "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-vector-icons/android/build/intermediates/res/merged/androidTest/debug/color-v23/abc_color_highlight_material.xml",
+    "source": "/Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/res/color-v23/abc_color_highlight_material.xml"
+}];

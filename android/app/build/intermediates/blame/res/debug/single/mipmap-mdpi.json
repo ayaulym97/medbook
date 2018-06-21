@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/threeva_launcher.png",
+        "source": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/res/mipmap-mdpi/threeva_launcher.png"
+    },
+    {
+        "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    }
+]

@@ -1,0 +1,1081 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/screens/cabinet/createRequest/resultRequest/resultRequest.js';
+
+var _reactNative = require('react-native');
+
+var _reactNativeModal = require('react-native-modal');
+
+var _reactNativeModal2 = _interopRequireDefault(_reactNativeModal);
+
+var _scale = require('../../../../config/scale');
+
+var _theme = require('../../../../config/theme');
+
+var _PlaceService = require('../../../../data/services/PlaceService');
+
+var _PlaceService2 = _interopRequireDefault(_PlaceService);
+
+var _DoctorService = require('../../../../data/services/DoctorService');
+
+var _DoctorService2 = _interopRequireDefault(_DoctorService);
+
+var _HTTPClient = require('../../../../data/HTTPClient');
+
+var _HTTPClient2 = _interopRequireDefault(_HTTPClient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    resultRequest: {
+        displayName: 'resultRequest'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/screens/cabinet/createRequest/resultRequest/resultRequest.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var resultRequest = _wrapComponent('resultRequest')((_temp = _class = function (_React$Component) {
+    _inherits(resultRequest, _React$Component);
+
+    function resultRequest(props) {
+        _classCallCheck(this, resultRequest);
+
+        var _this = _possibleConstructorReturn(this, (resultRequest.__proto__ || Object.getPrototypeOf(resultRequest)).call(this, props));
+
+        _this.modalContentDistrict = function () {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: styles.modalContentTypes, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 157
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.modalContentTypesText, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 158
+                        }
+                    },
+                    '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0440\u0430\u0439\u043E\u043D'
+                ),
+                _react3.default.createElement(
+                    _reactNative.TouchableOpacity,
+                    { onPress: function onPress() {
+                            return _this.takeDistrict({ id: 0, name: 'Все' });
+                        }, underlayColor: 'rgba(0,0,0,9)', style: styles.typeModal, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 159
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.typeModalText, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 160
+                            }
+                        },
+                        '\u0412\u0441\u0435'
+                    )
+                ),
+                _this.state.listOfDistrict.map(function (district) {
+                    return _react3.default.createElement(
+                        _reactNative.TouchableOpacity,
+                        { onPress: function onPress() {
+                                return _this.takeDistrict(district);
+                            }, underlayColor: 'rgba(0,0,0,9)', style: styles.typeModal, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 163
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.typeModalText, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 164
+                                }
+                            },
+                            district.name
+                        )
+                    );
+                })
+            );
+        };
+
+        _this.modalContentQualification = function () {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: styles.modalContentTypes, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 170
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.modalContentTypesText, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 171
+                        }
+                    },
+                    '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043A\u0432\u0430\u043B\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044E'
+                ),
+                _this.state.listOfCategory.map(function (category) {
+                    return _react3.default.createElement(
+                        _reactNative.TouchableOpacity,
+                        { onPress: function onPress() {
+                                return _this.takeCategory(category);
+                            }, underlayColor: 'rgba(0,0,0,9)', style: styles.typeModal, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 173
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.typeModalText, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 174
+                                }
+                            },
+                            category.name
+                        )
+                    );
+                })
+            );
+        };
+
+        _this.state = {
+            listOfDoctors: [],
+            searchDoctors: [],
+            districtSearch: [],
+            categorySearch: [],
+
+            listOfCategory: [{
+                id: 0,
+                name: 'Все'
+            }, {
+                id: 1,
+                name: 'Вторая'
+            }, {
+                id: 2,
+                name: 'Первая'
+            }, {
+                id: 3,
+                name: 'Высшая'
+            }, {
+                id: 4,
+                name: 'КМН'
+            }, {
+                id: 5,
+                name: 'ДМН'
+            }, {
+                id: 6,
+                name: 'Проффессор'
+            }, {
+                id: 7,
+                name: 'Доцент'
+            }],
+            listOfDistrict: [],
+
+            chooseCategory: {
+                id: 0,
+                name: 'Все'
+            },
+            chooseDistrict: {
+                id: 0,
+                name: 'Все'
+            },
+
+            noDoctors: false,
+            loadingSpinner: true,
+            visibleModal: false,
+            modalContent: ''
+        };
+        _this.getListOfDistricts();
+        _this.getResultById();
+        return _this;
+    }
+
+    _createClass(resultRequest, [{
+        key: 'getListOfDistricts',
+        value: function getListOfDistricts() {
+            var _this2 = this;
+
+            _PlaceService2.default.getCities().then(function (response) {
+                response.map(function (city) {
+                    if (city.id === _this2.props.navigation.state.params.city.id) {
+                        _this2.setState({
+                            listOfDistrict: city.district
+                        });
+                    }
+                });
+            });
+        }
+    }, {
+        key: 'getResultById',
+        value: function getResultById() {
+            var _this3 = this;
+
+            this.setState({
+                loadingSpinner: true
+            });
+            if (this.props.navigation.state.params.id.hasOwnProperty("id")) {
+                _DoctorService2.default.getResults(this.props.navigation.state.params.id.id).then(function (response) {
+                    _this3.setState({
+                        listOfDoctors: response.doctor,
+                        searchDoctors: response.doctor,
+                        noDoctors: false
+                    });
+
+                    setTimeout(function () {
+                        _this3.setState({
+                            loadingSpinner: false
+                        });
+                    }, 3000);
+                }, function (error) {});
+            } else {
+                setTimeout(function () {
+                    _this3.setState({
+                        loadingSpinner: false,
+                        noDoctors: true
+                    });
+                }, 3000);
+            }
+        }
+    }, {
+        key: 'setModal',
+        value: function setModal(content) {
+            this.setState({
+                modalContent: content,
+                visibleModal: !this.state.visibleModal
+            });
+        }
+    }, {
+        key: 'takeDistrict',
+        value: function takeDistrict(district) {
+            var _this4 = this;
+
+            this.setState({
+                visibleModal: false,
+                chooseDistrict: {
+                    id: district.id,
+                    name: district.name
+                }
+            });
+            setTimeout(function () {
+                _this4.searchDistrict();
+            }, 100);
+        }
+    }, {
+        key: 'takeCategory',
+        value: function takeCategory(category) {
+            var _this5 = this;
+
+            this.setState({
+                visibleModal: false,
+                chooseCategory: {
+                    id: category.id,
+                    name: category.name
+                }
+            });
+            setTimeout(function () {
+                _this5.searchCategory();
+            }, 100);
+        }
+    }, {
+        key: 'searchDistrict',
+        value: function searchDistrict() {
+            var _this6 = this;
+
+            if (this.state.chooseDistrict.id === 0 && this.state.chooseCategory.id === 0) {
+                this.setState({
+                    searchDoctors: this.state.listOfDoctors,
+                    districtSearch: [],
+                    categorySearch: []
+                });
+                return true;
+            }
+
+            var district = [];
+            this.state.listOfDoctors.map(function (doctor) {
+                if (doctor.doctor.place.district === _this6.state.chooseDistrict.id) {
+                    district.push(doctor);
+                }
+            });
+            this.setState({
+                districtSearch: district
+            });
+            setTimeout(function () {
+                _this6.mergeSorting();
+            }, 100);
+        }
+    }, {
+        key: 'searchCategory',
+        value: function searchCategory() {
+            var _this7 = this;
+
+            if (this.state.chooseDistrict.id === 0 && this.state.chooseCategory.id === 0) {
+                this.setState({
+                    searchDoctors: this.state.listOfDoctors,
+                    districtSearch: [],
+                    categorySearch: []
+                });
+                return true;
+            }
+
+            var categorylist = [];
+            this.state.listOfDoctors.map(function (doctor) {
+                if (doctor.doctor.hasOwnProperty('category')) {
+                    doctor.doctor.category.map(function (category) {
+                        if (category.id === _this7.state.chooseCategory.id) {
+                            categorylist.push(doctor);
+                        }
+                    });
+                }
+            });
+            this.setState({
+                categorySearch: categorylist
+            });
+            setTimeout(function () {
+                _this7.mergeSorting();
+            }, 100);
+        }
+    }, {
+        key: 'mergeSorting',
+        value: function mergeSorting() {
+            var _this8 = this;
+
+            var result = [];
+            if (this.state.chooseDistrict.id === 0) {
+                this.setState({
+                    searchDoctors: this.state.categorySearch
+                });
+                return true;
+            }
+            if (this.state.chooseCategory.id === 0) {
+                this.setState({
+                    searchDoctors: this.state.districtSearch
+                });
+                return true;
+            }
+
+            this.state.districtSearch.map(function (doctor) {
+                _this8.state.categorySearch.map(function (doctorTwo) {
+                    if (doctor === doctorTwo) {
+                        result.push(doctor);
+                    }
+                });
+            });
+            this.setState({
+                searchDoctors: result
+            });
+        }
+    }, {
+        key: 'chooseDoctor',
+        value: function chooseDoctor(id) {
+            this.props.navigation.navigate("profileOfDoctors", {
+                doctorId: id,
+                requestId: this.props.navigation.state.params.id.id
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this9 = this;
+
+            var navigate = this.props.navigation.navigate;
+
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: styles.container, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 263
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.header, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 264
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.TouchableOpacity,
+                        { onPress: function onPress() {
+                                _this9.props.navigation.goBack();
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 265
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { style: styles.back,
+                            source: require('../../../../assets/icons/back.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 266
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.firstTxt, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 269
+                            }
+                        },
+                        '\u0420\u0415\u0417\u0423\u041B\u042C\u0422\u0410\u0422\u042B \u041F\u041E\u0418\u0421\u041A\u0410'
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.sortHeader, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 272
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.sortHeaderButton, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 273
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.TouchableOpacity,
+                            { style: styles.sortButton, onPress: function onPress() {
+                                    return _this9.setModal('district');
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 274
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                { style: styles.sortButtonView, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 275
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    { style: styles.sortText, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 276
+                                        }
+                                    },
+                                    '\u041F\u043E \u0440\u0430\u0439\u043E\u043D\u0443'
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    { style: styles.sortDropdown, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 277
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        { style: styles.sortDropdownName, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 278
+                                            }
+                                        },
+                                        this.state.chooseDistrict.name
+                                    ),
+                                    _react3.default.createElement(_reactNative.Image, { style: styles.sortImage, source: require('../../../../assets/icons/caret-down.png'), __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 279
+                                        }
+                                    })
+                                )
+                            )
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.TouchableOpacity,
+                            { style: styles.sortButton, onPress: function onPress() {
+                                    return _this9.setModal('qualification');
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 284
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                { style: styles.sortButtonView, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 285
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    { style: styles.sortText, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 286
+                                        }
+                                    },
+                                    '\u041A\u0432\u0430\u043B\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F'
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    { style: styles.sortDropdown, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 287
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        { style: styles.sortDropdownName, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 288
+                                            }
+                                        },
+                                        this.state.chooseCategory.name
+                                    ),
+                                    _react3.default.createElement(_reactNative.Image, { style: styles.sortImage, source: require('../../../../assets/icons/caret-down.png'), __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 289
+                                        }
+                                    })
+                                )
+                            )
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.searchName, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 295
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.searchNameText, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 296
+                                }
+                            },
+                            this.props.navigation.state.params.name.toUpperCase()
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.container, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 300
+                        }
+                    },
+                    this.state.noDoctors ? _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.noDoctors, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 303
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { style: styles.noDoctorsImage, source: require('../../../../assets/icons/search_doctor.png'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 304
+                            }
+                        }),
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.noDoctorsText, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 305
+                                }
+                            },
+                            '\u041F\u043E \u0434\u0430\u043D\u043D\u043E\u043C\u0443 \u0437\u0430\u043F\u0440\u043E\u0441\u0443, \u0434\u043E\u043A\u0442\u043E\u0440\u043E\u0432 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E.'
+                        )
+                    ) : this.state.loadingSpinner ? _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.loadingContainer, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 309
+                            }
+                        },
+                        _reactNative.Platform.OS === 'ios' ? _react3.default.createElement(_reactNative.Image, {
+                            style: styles.loadingGif,
+                            source: require("../../../../assets/preload.gif"), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 311
+                            }
+                        }) : _react3.default.createElement(_reactNative.ActivityIndicator, { size: 'large', color: '#0B3356', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 314
+                            }
+                        })
+                    ) : _react3.default.createElement(
+                        _reactNative.ScrollView,
+                        { style: styles.doctorContainer, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 319
+                            }
+                        },
+                        this.state.searchDoctors.map(function (doctor) {
+                            return _react3.default.createElement(
+                                _reactNative.View,
+                                { style: styles.doctorCard, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 322
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    { style: styles.doctorInfo, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 323
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.View,
+                                        { style: styles.doctorMain, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 324
+                                            }
+                                        },
+                                        _react3.default.createElement(
+                                            _reactNative.View,
+                                            { style: styles.infoProfile, __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 325
+                                                }
+                                            },
+                                            _react3.default.createElement(_reactNative.Image, {
+                                                style: styles.doctorPhoto,
+                                                source: { uri: _HTTPClient2.default.MEDIA_URL + doctor.doctor.avatar },
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 326
+                                                }
+                                            })
+                                        )
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.View,
+                                        { style: styles.doctorPlace, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 333
+                                            }
+                                        },
+                                        _react3.default.createElement(
+                                            _reactNative.View,
+                                            { style: styles.doctorInformation, __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 334
+                                                }
+                                            },
+                                            _react3.default.createElement(
+                                                _reactNative.Text,
+                                                { style: styles.name, __source: {
+                                                        fileName: _jsxFileName,
+                                                        lineNumber: 335
+                                                    }
+                                                },
+                                                doctor.doctor.full_name
+                                            ),
+                                            _react3.default.createElement(
+                                                _reactNative.View,
+                                                { style: { flexDirection: 'row', width: '80%' }, __source: {
+                                                        fileName: _jsxFileName,
+                                                        lineNumber: 336
+                                                    }
+                                                },
+                                                _react3.default.createElement(
+                                                    _reactNative.Text,
+                                                    { style: styles.speciality, __source: {
+                                                            fileName: _jsxFileName,
+                                                            lineNumber: 337
+                                                        }
+                                                    },
+                                                    doctor.doctor.speciality.map(function (speciality, key) {
+                                                        return key > 0 ? _react3.default.createElement(
+                                                            _reactNative.Text,
+                                                            {
+                                                                __source: {
+                                                                    fileName: _jsxFileName,
+                                                                    lineNumber: 340
+                                                                }
+                                                            },
+                                                            ', ',
+                                                            speciality.name
+                                                        ) : _react3.default.createElement(
+                                                            _reactNative.Text,
+                                                            {
+                                                                __source: {
+                                                                    fileName: _jsxFileName,
+                                                                    lineNumber: 343
+                                                                }
+                                                            },
+                                                            speciality.name
+                                                        );
+                                                    })
+                                                )
+                                            )
+                                        ),
+                                        _react3.default.createElement(
+                                            _reactNative.View,
+                                            { style: styles.place, __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 350
+                                                }
+                                            },
+                                            _react3.default.createElement(_reactNative.Image, { style: styles.placeImage,
+                                                source: require('../../../../assets/icons/hospital-buildings.png'), __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 351
+                                                }
+                                            }),
+                                            _react3.default.createElement(
+                                                _reactNative.Text,
+                                                { style: styles.placeText, __source: {
+                                                        fileName: _jsxFileName,
+                                                        lineNumber: 353
+                                                    }
+                                                },
+                                                '\u041A\u043B\u0438\u043D\u0438\u043A\u0430 "',
+                                                doctor.doctor.place.name,
+                                                '"'
+                                            )
+                                        )
+                                    )
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.TouchableOpacity,
+                                    { style: styles.footer,
+                                        onPress: function onPress() {
+                                            return _this9.chooseDoctor(doctor.doctor.id);
+                                        }, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 360
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        { style: styles.footerText, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 362
+                                            }
+                                        },
+                                        '\u041F\u041E\u0414\u0420\u041E\u0411\u041D\u0415\u0415'
+                                    )
+                                )
+                            );
+                        })
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNativeModal2.default,
+                    {
+                        animationIn: 'slideInUp',
+                        animationOut: 'slideOutDown',
+                        avoidKeyboard: true,
+                        onBackdropPress: function onBackdropPress() {
+                            return _this9.setState({ visibleModal: false });
+                        },
+                        onBackButtonPress: function onBackButtonPress() {
+                            return _this9.setState({ visibleModal: false });
+                        },
+                        isVisible: this.state.visibleModal === true && this.state.modalContent === 'qualification',
+                        style: { flex: 2 }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 373
+                        }
+                    },
+                    this.modalContentQualification()
+                ),
+                _react3.default.createElement(
+                    _reactNativeModal2.default,
+                    {
+                        animationIn: 'slideInUp',
+                        animationOut: 'slideOutDown',
+                        avoidKeyboard: true,
+                        onBackdropPress: function onBackdropPress() {
+                            return _this9.setState({ visibleModal: false });
+                        },
+                        onBackButtonPress: function onBackButtonPress() {
+                            return _this9.setState({ visibleModal: false });
+                        },
+                        isVisible: this.state.visibleModal === true && this.state.modalContent === 'district',
+                        style: { flex: 2 }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 384
+                        }
+                    },
+                    this.modalContentDistrict()
+                )
+            );
+        }
+    }]);
+
+    return resultRequest;
+}(_react3.default.Component), _class.navigationOptions = function (_ref) {
+    var navigation = _ref.navigation;
+    return {
+        header: null,
+        tabBarIcon: function tabBarIcon(_ref2) {
+            var focused = _ref2.focused;
+            return _react3.default.createElement(_reactNative.Image, { source: focused ? require('../../../../assets/icons/home_active.png') : require('../../../../assets/icons/home_inactive.png'),
+                style: { height: (0, _scale.scale)(21), width: (0, _scale.scale)(22) },
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 17
+                }
+            });
+        }
+    };
+}, _temp));
+
+exports.default = resultRequest;
+
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
+    header: {
+        height: (0, _scale.scale)(55),
+        width: '100%',
+        paddingTop: _reactNative.Platform.OS === 'ios' ? (0, _scale.scale)(22) : 0,
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    back: {
+        marginLeft: (0, _scale.scale)(18)
+    },
+
+    sortHeader: {
+        flexDirection: 'column',
+        backgroundColor: 'rgb(235, 235, 235)'
+    },
+    sortHeaderButton: {
+        height: (0, _scale.scale)(44),
+        width: '100%',
+        flexDirection: 'row'
+    },
+    firstTxt: {
+        fontSize: _theme.Medbook.fonts.sizes.p1,
+        fontWeight: 'bold',
+        marginHorizontal: (0, _scale.scale)(60),
+        textAlign: 'center',
+        color: _theme.Medbook.colors.text.first
+    },
+    sortButton: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        borderLeftWidth: 1,
+        marginVertical: (0, _scale.scale)(5),
+        borderColor: 'rgb(200, 200, 200)'
+    },
+    sortButtonView: {
+        height: '100%',
+        width: '60%',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+    },
+    sortText: {
+        color: 'rgb(90, 90, 90)',
+        fontSize: (0, _scale.scale)(10),
+        fontWeight: '100'
+    },
+    sortDropdown: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    sortDropdownName: {
+        fontSize: _theme.Medbook.fonts.sizes.p5,
+        fontWeight: 'bold',
+        color: 'rgb(90, 90, 90)'
+    },
+    sortImage: {
+        height: (0, _scale.scale)(6),
+        width: (0, _scale.scale)(10),
+        marginLeft: (0, _scale.scale)(5)
+    },
+
+    searchName: {
+        width: '100%',
+        backgroundColor: _theme.Medbook.colors.backgroundFirst,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    searchNameText: {
+        fontSize: _theme.Medbook.fonts.sizes.p7,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'white',
+        marginVertical: (0, _scale.scale)(7)
+    },
+
+    doctorContainer: {
+        paddingHorizontal: (0, _scale.scale)(15),
+        paddingVertical: (0, _scale.scale)(15)
+    },
+    doctorCard: {
+        flexDirection: 'column',
+        height: (0, _scale.scale)(190),
+        backgroundColor: 'white',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: 'rgb(200, 200, 200)',
+        marginBottom: (0, _scale.scale)(16)
+    },
+    doctorInfo: {
+        height: '84%',
+        width: '100%'
+    },
+
+    doctorMain: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '55%'
+    },
+
+    infoProfile: {
+        flexDirection: 'row',
+        width: ' 33%',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    doctorPhoto: {
+        width: (0, _scale.scale)(68),
+        height: (0, _scale.scale)(68),
+        borderRadius: (0, _scale.scale)(34)
+    },
+    doctorPlace: {
+        height: '45%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingBottom: (0, _scale.scale)(15)
+    },
+    doctorInformation: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    name: {
+        color: _theme.Medbook.colors.text.first,
+        fontSize: (0, _scale.scale)(14),
+        fontWeight: '600',
+        textAlign: 'center'
+    },
+    speciality: {
+        color: '#9c9c9c',
+        fontSize: (0, _scale.scale)(11),
+        marginLeft: (0, _scale.scale)(3)
+    },
+
+    place: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+    },
+    placeText: {
+        color: _theme.Medbook.colors.text.first,
+        fontSize: (0, _scale.scale)(11),
+        marginTop: (0, _scale.scale)(3),
+        marginLeft: (0, _scale.scale)(5)
+    },
+    placeImage: {
+        height: (0, _scale.scale)(12),
+        width: (0, _scale.scale)(18)
+    },
+
+    footer: {
+        height: '16%',
+        width: '100%',
+        backgroundColor: _theme.Medbook.colors.backgroundTenth,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomRightRadius: 3,
+        borderBottomLeftRadius: 3
+    },
+    footerText: {
+        fontSize: _theme.Medbook.fonts.sizes.p3,
+        fontWeight: '500',
+        color: 'white'
+    },
+    modalContentTypes: {
+        width: '90%',
+        backgroundColor: 'rgb(200, 200, 200)',
+        alignSelf: 'center'
+    },
+    modalContentTypesText: {
+        color: 'white',
+        fontSize: _theme.Medbook.fonts.sizes.p4,
+        alignSelf: 'center',
+        textAlign: 'center',
+        paddingVertical: (0, _scale.scale)(12)
+    },
+    typeModal: {
+        height: (0, _scale.scale)(28),
+        width: '100%',
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: _theme.Medbook.colors.textFourth
+    },
+    typeModalText: {
+        textAlign: 'center',
+        width: '100%',
+        color: _theme.Medbook.colors.textFourth,
+        fontSize: _theme.Medbook.fonts.sizes.p5
+    },
+
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    loadingGif: {
+        width: (0, _scale.scale)(150),
+        height: (0, _scale.scale)(150)
+    },
+
+    noDoctors: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    noDoctorsText: {
+        fontSize: _theme.Medbook.fonts.sizes.p3,
+        color: 'rgb(120, 120, 120)',
+        textAlign: 'center'
+    },
+    noDoctorsImage: {
+        height: (0, _scale.scale)(36),
+        width: (0, _scale.scale)(36),
+        marginBottom: (0, _scale.scale)(15)
+    }
+});

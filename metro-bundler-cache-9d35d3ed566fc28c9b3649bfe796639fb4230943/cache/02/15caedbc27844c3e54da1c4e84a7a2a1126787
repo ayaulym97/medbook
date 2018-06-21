@@ -1,0 +1,142 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require("react-native");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var HTTPClient = function () {
+    function HTTPClient() {
+        _classCallCheck(this, HTTPClient);
+    }
+
+    _createClass(HTTPClient, null, [{
+        key: "fetch",
+        value: function (_fetch) {
+            function fetch() {
+                return _fetch.apply(this, arguments);
+            }
+
+            fetch.toString = function () {
+                return _fetch.toString();
+            };
+
+            return fetch;
+        }(function _callee() {
+            var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+            var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+            var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+            var body = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+            var user, token, data, response, response_body;
+            return regeneratorRuntime.async(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            _context.next = 2;
+                            return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem("@user"));
+
+                        case 2:
+                            user = _context.sent;
+
+                            if (user !== null) {
+                                token = JSON.parse(user).auth_token;
+
+                                headers = {
+                                    Authorization: "Token " + token
+                                };
+                            }
+                            if (!url.includes('image')) {
+                                headers['Content-Type'] = "application/json";
+                            }
+                            headers['Accept'] = "application/json";
+                            data = {
+                                method: method,
+                                headers: headers
+                            };
+
+
+                            if (method !== "GET" && method !== "HEAD") {
+                                data['body'] = JSON.stringify(body);
+                            }
+
+                            _context.next = 10;
+                            return regeneratorRuntime.awrap(fetch(this.URL + url, data));
+
+                        case 10:
+                            response = _context.sent;
+                            _context.next = 13;
+                            return regeneratorRuntime.awrap(this.checkStatus(response));
+
+                        case 13:
+                            response_body = _context.sent;
+                            return _context.abrupt("return", response_body);
+
+                        case 15:
+                        case "end":
+                            return _context.stop();
+                    }
+                }
+            }, null, this);
+        })
+    }, {
+        key: "get",
+        value: function get(path) {
+            var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+            return this.fetch(path, this.METHODS.GET, headers);
+        }
+    }, {
+        key: "post",
+        value: function post(path, body) {
+            var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+            return this.fetch(path, this.METHODS.POST, headers, body);
+        }
+    }, {
+        key: "patch",
+        value: function patch(path, body, headers) {
+            return this.fetch(path, this.METHODS.PATCH, headers, body);
+        }
+    }, {
+        key: "delete",
+        value: function _delete(path) {
+            var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+            return this.fetch(path, this.METHODS.DELETE, headers);
+        }
+    }, {
+        key: "checkStatus",
+        value: function checkStatus(response) {
+            if (response.status >= 200 && response.status < 300) {
+                if (response.status === 204) {
+                    return [];
+                }
+                return response.json().then(function (item) {
+                    return item;
+                });
+            } else {
+                return response.json().then(function (item) {
+                    var error = new Error(item.status);
+                    error.response = item;
+                    throw error;
+                });
+            }
+        }
+    }]);
+
+    return HTTPClient;
+}();
+
+HTTPClient.METHODS = {
+    GET: "GET",
+    POST: "POST",
+    PATCH: "PATCH",
+    DELETE: "DELETE"
+};
+HTTPClient.URL = "http://icaretest.northeurope.cloudapp.azure.com/api/";
+HTTPClient.MEDIA_URL = "http://icaretest.northeurope.cloudapp.azure.com/";
+exports.default = HTTPClient;
+;

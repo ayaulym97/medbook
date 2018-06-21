@@ -1,0 +1,28 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.RequestService = undefined;
+
+var _HTTPClient = require("../HTTPClient");
+
+var _HTTPClient2 = _interopRequireDefault(_HTTPClient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var RequestService = exports.RequestService = {
+    getDoctorsBySpec: function getDoctorsBySpec(data) {
+        return _HTTPClient2.default.post("request/doctors_by_spec/", data);
+    },
+    getListSpec: function getListSpec() {
+        return _HTTPClient2.default.get("list_speciality/?all=0");
+    },
+    searchDoc: function searchDoc(data) {
+        return _HTTPClient2.default.post("request/doctor_search/", data);
+    },
+    requestService: function requestService(data) {
+        return _HTTPClient2.default.post("request/service_search/", data);
+    },
+    requestSpeciality: function requestSpeciality(data) {
+        return _HTTPClient2.default.post("request/spec_search/", data);
+    }
+};

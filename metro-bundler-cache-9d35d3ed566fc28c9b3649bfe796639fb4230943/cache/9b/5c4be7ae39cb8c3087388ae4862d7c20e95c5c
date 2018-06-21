@@ -1,0 +1,54 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _theme = require("../../config/theme");
+
+var _reactNavigation = require("react-navigation");
+
+var _userProfile = require("./profile/userProfile");
+
+var _userProfile2 = _interopRequireDefault(_userProfile);
+
+var _index = require("./createRequest/index");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("./searchDoctor/index");
+
+var _index4 = _interopRequireDefault(_index3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = (0, _reactNavigation.TabNavigator)({
+    Profile: {
+        screen: _userProfile2.default
+    },
+    CreateRequest: {
+        screen: _index2.default
+    },
+    SearchDoctor: {
+        screen: _index4.default
+    }
+}, {
+    initialRouteName: 'CreateRequest',
+    headerMode: 'none',
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+        showLabel: false,
+        showIcon: 'true',
+        style: {
+            backgroundColor: '#fff',
+            height: 45,
+            paddingVertical: 0,
+            margin: 0
+        },
+        indicatorStyle: {
+            height: 3,
+            bottom: 0,
+            backgroundColor: '#0B3356'
+        }
+    }
+
+});
+exports.default = Home;

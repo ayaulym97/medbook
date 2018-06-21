@@ -1,0 +1,247 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require("react");
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require("./../../react-transform-hmr/lib/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-calendar-strip/src/CalendarDay.js";
+
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require("react-native");
+
+var _CalendarStyle = require("./Calendar.style.js");
+
+var _CalendarStyle2 = _interopRequireDefault(_CalendarStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  CalendarDay: {
+    displayName: "CalendarDay"
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-calendar-strip/src/CalendarDay.js",
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var CalendarDay = _wrapComponent("CalendarDay")((_temp = _class = function (_Component) {
+  _inherits(CalendarDay, _Component);
+
+  function CalendarDay(props) {
+    _classCallCheck(this, CalendarDay);
+
+    var _this = _possibleConstructorReturn(this, (CalendarDay.__proto__ || Object.getPrototypeOf(CalendarDay)).call(this, props));
+
+    _this.state = {
+      selected: props.selected,
+      containerSize: Math.round(props.size),
+      containerPadding: Math.round(props.size / 5),
+      containerBorderRadius: Math.round(props.size / 2),
+      dateNameFontSize: Math.round(props.size / 2.8),
+      dateNumberFontSize: Math.round(props.size / 5)
+    };
+    return _this;
+  }
+
+  _createClass(CalendarDay, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      newState = {};
+      if (this.state.selected !== nextProps.selected) {
+        if (this.props.daySelectionAnimation.type !== "") {
+          var configurableAnimation = {
+            duration: this.props.daySelectionAnimation.duration || 300,
+            create: {
+              type: this.props.daySelectionAnimation.animType || _reactNative.LayoutAnimation.Types.easeInEaseOut,
+              property: this.props.daySelectionAnimation.animProperty || _reactNative.LayoutAnimation.Properties.opacity
+            },
+            update: {
+              type: this.props.daySelectionAnimation.animUpdateType || _reactNative.LayoutAnimation.Types.easeInEaseOut,
+              springDamping: this.props.daySelectionAnimation.animSpringDamping
+            },
+            delete: {
+              type: this.props.daySelectionAnimation.animType || _reactNative.LayoutAnimation.Types.easeInEaseOut,
+              property: this.props.daySelectionAnimation.animProperty || _reactNative.LayoutAnimation.Properties.opacity
+            }
+          };
+          _reactNative.LayoutAnimation.configureNext(configurableAnimation);
+        }
+        newState.selected = nextProps.selected;
+      }
+
+      if (nextProps.size !== this.props.size) {
+        newState.containerSize = Math.round(nextProps.size);
+        newState.containerPadding = Math.round(nextProps.size / 5);
+        newState.containerBorderRadius = Math.round(nextProps.size / 2);
+        newState.dateNameFontSize = Math.round(nextProps.size / 5);
+        newState.dateNumberFontSize = Math.round(nextProps.size / 2.9);
+      }
+
+      this.setState(newState);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var dateNameStyle = [_CalendarStyle2.default.dateName, this.props.disabledDateNameStyle];
+      var dateNumberStyle = [_CalendarStyle2.default.dateNumber, this.props.disabledDateNumberStyle];
+      var dateViewStyle = this.props.enabled ? [] : [{ opacity: this.props.disabledDateOpacity }];
+      var customStyle = this.props.customStyle;
+
+      if (customStyle) {
+        dateNameStyle = [_CalendarStyle2.default.dateName, customStyle.dateNameStyle];
+        dateNumberStyle = [_CalendarStyle2.default.dateNumber, customStyle.dateNumberStyle];
+        dateViewStyle.push(customStyle.dateContainerStyle);
+      } else if (this.props.enabled) {
+        switch (this.props.daySelectionAnimation.type) {
+          case "background":
+            var dateViewBGColor = this.state.selected ? this.props.daySelectionAnimation.highlightColor : "transparent";
+
+            dateViewStyle = { backgroundColor: dateViewBGColor };
+            break;
+          case "border":
+            var dateViewBorderWidth = this.state.selected ? this.props.daySelectionAnimation.borderWidth : 0;
+            dateViewStyle = {
+              borderColor: this.props.daySelectionAnimation.borderHighlightColor,
+              borderWidth: dateViewBorderWidth
+            };
+            break;
+          default:
+            break;
+        }
+
+        dateNameStyle = [_CalendarStyle2.default.dateName, this.props.dateNameStyle];
+        dateNumberStyle = [_CalendarStyle2.default.dateNumber, this.props.dateNumberStyle];
+        if (this.props.styleWeekend && (this.props.date.isoWeekday() === 6 || this.props.date.isoWeekday() === 7)) {
+          dateNameStyle = [_CalendarStyle2.default.weekendDateName, this.props.weekendDateNameStyle];
+          dateNumberStyle = [_CalendarStyle2.default.weekendDateNumber, this.props.weekendDateNumberStyle];
+        }
+        if (this.state.selected) {
+          dateNameStyle = [_CalendarStyle2.default.dateName, this.props.highlightDateNameStyle];
+          dateNumberStyle = [_CalendarStyle2.default.dateNumber, this.props.highlightDateNumberStyle];
+        }
+      }
+
+      var responsiveDateContainerStyle = {
+        width: this.state.containerSize,
+        height: this.state.containerSize,
+        borderRadius: this.state.containerBorderRadius,
+        padding: this.state.containerPadding
+      };
+
+      return _react3.default.createElement(
+        _reactNative.TouchableOpacity,
+        {
+          onPress: this.props.onDateSelected.bind(this, this.props.date),
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 191
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          {
+            key: this.props.date,
+            style: [_CalendarStyle2.default.dateContainer, responsiveDateContainerStyle, dateViewStyle],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 194
+            }
+          },
+          this.props.showDayName && _react3.default.createElement(
+            _reactNative.Text,
+            {
+              style: [dateNameStyle, { fontSize: this.state.dateNameFontSize }],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 203
+              }
+            },
+            this.props.date.format("ddd").toUpperCase()
+          ),
+          this.props.showDayNumber && _react3.default.createElement(
+            _reactNative.Text,
+            {
+              style: [dateNumberStyle, { fontSize: this.state.dateNumberFontSize }],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 209
+              }
+            },
+            this.props.date.date()
+          )
+        )
+      );
+    }
+  }]);
+
+  return CalendarDay;
+}(_react2.Component), _class.propTypes = {
+  date: _propTypes2.default.object.isRequired,
+  onDateSelected: _propTypes2.default.func.isRequired,
+  selected: _propTypes2.default.bool.isRequired,
+  enabled: _propTypes2.default.bool.isRequired,
+
+  showDayName: _propTypes2.default.bool,
+  showDayNumber: _propTypes2.default.bool,
+
+  calendarColor: _propTypes2.default.string,
+
+  dateNameStyle: _propTypes2.default.any,
+  dateNumberStyle: _propTypes2.default.any,
+  weekendDateNameStyle: _propTypes2.default.any,
+  weekendDateNumberStyle: _propTypes2.default.any,
+  highlightDateNameStyle: _propTypes2.default.any,
+  highlightDateNumberStyle: _propTypes2.default.any,
+  disabledDateNameStyle: _propTypes2.default.any,
+  disabledDateNumberStyle: _propTypes2.default.any,
+  disabledDateOpacity: _propTypes2.default.number,
+  styleWeekend: _propTypes2.default.bool,
+  customStyle: _propTypes2.default.object,
+
+  daySelectionAnimation: _propTypes2.default.object
+}, _class.defaultProps = {
+  daySelectionAnimation: {
+    type: "",
+    duration: 300,
+    borderWidth: 1,
+    borderHighlightColor: "black",
+    highlightColor: "yellow",
+    animType: _reactNative.LayoutAnimation.Types.easeInEaseOut,
+    animUpdateType: _reactNative.LayoutAnimation.Types.easeInEaseOut,
+    animProperty: _reactNative.LayoutAnimation.Properties.opacity,
+    animSpringDamping: undefined },
+  styleWeekend: true,
+  showDayName: true,
+  showDayNumber: true
+}, _temp));
+
+exports.default = CalendarDay;

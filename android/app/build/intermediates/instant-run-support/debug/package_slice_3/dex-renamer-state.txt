@@ -1,0 +1,4 @@
+#Mon Nov 20 19:31:20 ALMT 2017
+base.0=/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3
+renamed.0=classes.dex
+file.0=/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex

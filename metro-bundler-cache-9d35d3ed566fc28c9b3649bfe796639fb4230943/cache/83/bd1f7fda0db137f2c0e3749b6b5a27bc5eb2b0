@@ -1,0 +1,7 @@
+module.exports = [{
+    "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/threeva_launcher.png",
+    "source": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/res/mipmap-xxhdpi/threeva_launcher.png"
+}, {
+    "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+    "source": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+}];

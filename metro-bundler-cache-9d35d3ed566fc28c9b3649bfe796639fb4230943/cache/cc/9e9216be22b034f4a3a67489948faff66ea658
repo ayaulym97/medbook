@@ -1,0 +1,684 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require("react");
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require("./../../react-transform-hmr/lib/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-calendar-strip/src/CalendarStrip.js";
+
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require("react-native");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _CalendarHeader = require("./CalendarHeader");
+
+var _CalendarHeader2 = _interopRequireDefault(_CalendarHeader);
+
+var _CalendarDay = require("./CalendarDay");
+
+var _CalendarDay2 = _interopRequireDefault(_CalendarDay);
+
+var _WeekSelector = require("./WeekSelector");
+
+var _WeekSelector2 = _interopRequireDefault(_WeekSelector);
+
+var _CalendarStyle = require("./Calendar.style.js");
+
+var _CalendarStyle2 = _interopRequireDefault(_CalendarStyle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  CalendarStrip: {
+    displayName: "CalendarStrip"
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: "/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-calendar-strip/src/CalendarStrip.js",
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var CalendarStrip = _wrapComponent("CalendarStrip")((_temp = _class = function (_Component) {
+  _inherits(CalendarStrip, _Component);
+
+  function CalendarStrip(props) {
+    _classCallCheck(this, CalendarStrip);
+
+    var _this = _possibleConstructorReturn(this, (CalendarStrip.__proto__ || Object.getPrototypeOf(CalendarStrip)).call(this, props));
+
+    _this.numDaysInWeek = 7;
+
+    if (props.locale) {
+      if (props.locale.name && props.locale.config) {
+        _moment2.default.locale(props.locale.name, props.locale.config);
+      } else {
+        throw new Error("Locale prop is not in the correct format. \b Locale has to be in form of object, with params NAME and CONFIG!");
+      }
+    }
+
+    var startingDate = _this.getInitialStartingDate();
+    var selectedDate = _this.setLocale((0, _moment2.default)(_this.props.selectedDate));
+    var weekData = _this.updateWeekData(startingDate, selectedDate);
+
+    _this.state = _extends({
+      startingDate: startingDate,
+      selectedDate: selectedDate
+    }, weekData, {
+      dayComponentWidth: 0,
+      height: 0,
+      monthFontSize: 0,
+      selectorSize: 0
+    });
+
+    _this.resetAnimation();
+
+    _this.componentDidMount = _this.componentDidMount.bind(_this);
+    _this.componentWillUpdate = _this.componentWillUpdate.bind(_this);
+    _this.updateWeekData = _this.updateWeekData.bind(_this);
+    _this.getPreviousWeek = _this.getPreviousWeek.bind(_this);
+    _this.getNextWeek = _this.getNextWeek.bind(_this);
+    _this.onDateSelected = _this.onDateSelected.bind(_this);
+    _this.isDateSelected = _this.isDateSelected.bind(_this);
+    _this.animate = _this.animate.bind(_this);
+    _this.resetAnimation = _this.resetAnimation.bind(_this);
+    return _this;
+  }
+
+  _createClass(CalendarStrip, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.animate();
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      var selectedDate = {},
+          startingDate = {},
+          weekData = {};
+      var updateState = false;
+
+      if (!this.compareDates(nextProps.selectedDate, this.props.selectedDate)) {
+        updateState = true;
+        selectedDate = {
+          selectedDate: this.setLocale((0, _moment2.default)(nextProps.selectedDate))
+        };
+        startingDate = {
+          startingDate: this.updateWeekStart(selectedDate.selectedDate)
+        };
+        weekData = this.updateWeekData(startingDate.startingDate, selectedDate.selectedDate, nextProps);
+      }
+
+      if (!updateState && !this.compareDates(nextProps.startingDate, this.props.startingDate)) {
+        updateState = true;
+        startingDate = this.setLocale((0, _moment2.default)(nextProps.startingDate));
+        startingDate = { startingDate: this.updateWeekStart(startingDate) };
+        weekData = this.updateWeekData(startingDate.startingDate, this.state.selectedDate, nextProps);
+      }
+
+      if (!updateState && (JSON.stringify(nextProps.datesBlacklist) !== JSON.stringify(this.props.datesBlacklist) || JSON.stringify(nextProps.datesWhitelist) !== JSON.stringify(this.props.datesWhitelist) || JSON.stringify(nextProps.customDatesStyles) !== JSON.stringify(this.props.customDatesStyles))) {
+        updateState = true;
+
+        startingDate = {
+          startingDate: this.updateWeekStart(nextProps.startingDate)
+        };
+        weekData = this.updateWeekData(startingDate.startingDate, this.state.selectedDate, nextProps);
+      }
+
+      if (updateState) {
+        this.setState(_extends({}, selectedDate, startingDate, weekData));
+      }
+    }
+  }, {
+    key: "componentWillUpdate",
+    value: function componentWillUpdate(nextProps, nextState) {
+      if (nextState.selectedDate === this.state.selectedDate) {
+        this.resetAnimation();
+        this.animate();
+      }
+    }
+  }, {
+    key: "compareDates",
+    value: function compareDates(date1, date2) {
+      if (date1 && date1.valueOf && date2 && date2.valueOf && date1.valueOf() === date2.valueOf()) {
+        return true;
+      } else {
+        return JSON.stringify(date1) === JSON.stringify(date2);
+      }
+    }
+  }, {
+    key: "setLocale",
+    value: function setLocale(momentInstance) {
+      if (this.props.locale) {
+        momentInstance.locale(this.props.locale.name);
+      }
+      return momentInstance;
+    }
+  }, {
+    key: "getInitialStartingDate",
+    value: function getInitialStartingDate() {
+      if (this.props.startingDate) {
+        return this.setLocale((0, _moment2.default)(this.props.startingDate));
+      } else {
+        return this.setLocale((0, _moment2.default)(this.props.selectedDate)).isoWeekday(1);
+      }
+    }
+  }, {
+    key: "getPreviousWeek",
+    value: function getPreviousWeek() {
+      var previousWeekStartDate = this.state.startingDate.clone().subtract(1, "w");
+      if (this.props.onWeekChanged) {
+        if (this.props.useIsoWeekday) {
+          this.props.onWeekChanged(previousWeekStartDate.clone().startOf("isoweek"));
+        } else {
+          this.props.onWeekChanged(previousWeekStartDate.clone());
+        }
+      }
+      var weekData = this.updateWeekData(previousWeekStartDate);
+      this.setState(_extends({ startingDate: previousWeekStartDate }, weekData));
+    }
+  }, {
+    key: "getNextWeek",
+    value: function getNextWeek() {
+      var nextWeekStartDate = this.state.startingDate.clone().add(1, "w");
+      if (this.props.onWeekChanged) {
+        if (this.props.useIsoWeekday) {
+          this.props.onWeekChanged(nextWeekStartDate.clone().startOf("isoweek"));
+        } else {
+          this.props.onWeekChanged(nextWeekStartDate.clone());
+        }
+      }
+      var weekData = this.updateWeekData(nextWeekStartDate);
+      this.setState(_extends({ startingDate: nextWeekStartDate }, weekData));
+    }
+  }, {
+    key: "updateWeekStart",
+    value: function updateWeekStart(newStartDate) {
+      var originalStartDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.state.startingDate;
+
+      if (!this.props.updateWeek) {
+        return originalStartDate;
+      }
+      var startingDate = (0, _moment2.default)(newStartDate).startOf("day");
+      var daysDiff = startingDate.diff(originalStartDate.startOf("day"), "days");
+      if (daysDiff === 0) {
+        return originalStartDate;
+      }
+      var addOrSubtract = daysDiff > 0 ? "add" : "subtract";
+      var adjustWeeks = daysDiff / 7;
+      adjustWeeks = adjustWeeks > 0 ? Math.floor(adjustWeeks) : Math.ceil(Math.abs(adjustWeeks));
+      startingDate = originalStartDate[addOrSubtract](adjustWeeks, "w");
+
+      return this.setLocale(startingDate);
+    }
+  }, {
+    key: "updateWeekData",
+    value: function updateWeekData(startingDate) {
+      var selectedDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.state.selectedDate;
+      var props = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.props;
+
+      var me = this;
+      var datesForWeek = [];
+      var datesAllowedForWeek = [];
+      var datesSelectedForWeek = [];
+      var datesCustomStylesForWeek = [];
+
+      for (var i = 0; i < this.numDaysInWeek; i++) {
+        var date = void 0;
+        if (props.useIsoWeekday) {
+          date = me.setLocale(startingDate.clone().isoWeekday(i + 1));
+        } else {
+          date = me.setLocale(startingDate.clone().add(i, "days"));
+        }
+        datesForWeek.push(date);
+        datesAllowedForWeek.push(this.isDateAllowed(date, props));
+        datesSelectedForWeek.push(this.isDateSelected(date, selectedDate));
+        datesCustomStylesForWeek.push(this.getCustomDateStyle(date, props));
+      }
+      return {
+        datesForWeek: datesForWeek,
+        datesAllowedForWeek: datesAllowedForWeek,
+        datesSelectedForWeek: datesSelectedForWeek,
+        datesCustomStylesForWeek: datesCustomStylesForWeek
+      };
+    }
+  }, {
+    key: "onDateSelected",
+    value: function onDateSelected(selectedDate) {
+      this.setState(_extends({
+        selectedDate: selectedDate
+      }, this.updateWeekData(this.state.startingDate, selectedDate)));
+      this.props.onDateSelected && this.props.onDateSelected(selectedDate);
+    }
+  }, {
+    key: "isDateAllowed",
+    value: function isDateAllowed(date) {
+      var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.props;
+
+      if (props.datesBlacklist !== undefined) {
+        for (var _iterator = props.datesBlacklist, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[typeof Symbol === "function" ? Symbol.iterator : "@@iterator"]();;) {
+          var _ref;
+
+          if (_isArray) {
+            if (_i >= _iterator.length) break;
+            _ref = _iterator[_i++];
+          } else {
+            _i = _iterator.next();
+            if (_i.done) break;
+            _ref = _i.value;
+          }
+
+          var disallowed = _ref;
+
+          if (disallowed.start && disallowed.end) {
+            if (date.isBetween(disallowed.start, disallowed.end, "day", "[]")) {
+              return false;
+            }
+          } else {
+            if (date.isSame(disallowed, "day")) {
+              return false;
+            }
+          }
+        }
+      }
+
+      if (props.datesWhitelist === undefined) {
+        return true;
+      }
+
+      for (var _iterator2 = props.datesWhitelist, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[typeof Symbol === "function" ? Symbol.iterator : "@@iterator"]();;) {
+        var _ref2;
+
+        if (_isArray2) {
+          if (_i2 >= _iterator2.length) break;
+          _ref2 = _iterator2[_i2++];
+        } else {
+          _i2 = _iterator2.next();
+          if (_i2.done) break;
+          _ref2 = _i2.value;
+        }
+
+        var allowed = _ref2;
+
+        if (allowed.start && allowed.end) {
+          if (date.isBetween(allowed.start, allowed.end, "day", "[]")) {
+            return true;
+          }
+        } else {
+          if (date.isSame(allowed, "day")) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+  }, {
+    key: "isDateSelected",
+    value: function isDateSelected(date) {
+      var selectedDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.state.selectedDate;
+
+      return date.isSame(selectedDate, "day");
+    }
+  }, {
+    key: "getSelectedDate",
+    value: function getSelectedDate(date) {
+      if (this.state.selectedDate.valueOf() === 0) {
+        return;
+      }
+      return this.state.selectedDate;
+    }
+  }, {
+    key: "setSelectedDate",
+    value: function setSelectedDate(date) {
+      var mDate = (0, _moment2.default)(date);
+      this.onDateSelected(mDate);
+
+      if (date !== 0) {
+        this.updateWeekStart(mDate);
+      }
+    }
+  }, {
+    key: "getCustomDateStyle",
+    value: function getCustomDateStyle(date) {
+      var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.props;
+
+      for (var _iterator3 = props.customDatesStyles, _isArray3 = Array.isArray(_iterator3), _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[typeof Symbol === "function" ? Symbol.iterator : "@@iterator"]();;) {
+        var _ref3;
+
+        if (_isArray3) {
+          if (_i3 >= _iterator3.length) break;
+          _ref3 = _iterator3[_i3++];
+        } else {
+          _i3 = _iterator3.next();
+          if (_i3.done) break;
+          _ref3 = _i3.value;
+        }
+
+        var customDateStyle = _ref3;
+
+        if (customDateStyle.endDate) {
+          if (date.isBetween(customDateStyle.startDate, customDateStyle.endDate, "day", "[]")) {
+            return customDateStyle;
+          }
+        } else {
+          if (date.isSame(customDateStyle.startDate, "day")) {
+            return customDateStyle;
+          }
+        }
+      }
+    }
+  }, {
+    key: "resetAnimation",
+    value: function resetAnimation() {
+      this.animatedValue = [];
+      for (var i = 0; i < this.numDaysInWeek; i++) {
+        this.animatedValue.push(new _reactNative.Animated.Value(0));
+      }
+    }
+  }, {
+    key: "animate",
+    value: function animate() {
+      if (this.props.calendarAnimation) {
+        var animations = [];
+        for (var i = 0; i < this.numDaysInWeek; i++) {
+          animations.push(_reactNative.Animated.timing(this.animatedValue[i], {
+            toValue: 1,
+            duration: this.props.calendarAnimation.duration,
+            easing: _reactNative.Easing.linear
+          }));
+        }
+
+        if (this.props.calendarAnimation.type.toLowerCase() === "sequence") {
+          _reactNative.Animated.sequence(animations).start();
+        } else {
+          if (this.props.calendarAnimation.type.toLowerCase() === "parallel") {
+            _reactNative.Animated.parallel(animations).start();
+          } else {
+            throw new Error("CalendarStrip Error! Type of animation is incorrect!");
+          }
+        }
+      }
+    }
+  }, {
+    key: "onLayout",
+    value: function onLayout(event) {
+      var csWidth = event.nativeEvent.layout.width;
+      var numElements = this.numDaysInWeek;
+      if (Array.isArray(this.props.leftSelector) && this.props.leftSelector.length > 0) {
+        numElements++;
+      }
+      if (Array.isArray(this.props.rightSelector) && this.props.rightSelector.length > 0) {
+        numElements++;
+      }
+
+      var dayComponentWidth = csWidth / numElements + this.props.responsiveSizingOffset;
+      dayComponentWidth = Math.min(dayComponentWidth, this.props.maxDayComponentSize);
+      dayComponentWidth = Math.max(dayComponentWidth, this.props.minDayComponentSize);
+      var monthFontSize = Math.round(dayComponentWidth / 3.2);
+      var selectorSize = Math.round(dayComponentWidth / 2.5);
+      var height = this.props.showMonth ? monthFontSize : 0;
+      height += this.props.showDate ? dayComponentWidth : 0;
+      selectorSize = Math.min(selectorSize, height);
+
+      this.setState({
+        dayComponentWidth: dayComponentWidth,
+        height: height,
+        monthFontSize: monthFontSize,
+        selectorSize: selectorSize
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var datesForWeek = this.state.datesForWeek;
+      var datesRender = [];
+
+      var _loop = function _loop(i) {
+        var enabled = _this2.state.datesAllowedForWeek[i];
+        var calendarDay = _react3.default.createElement(_CalendarDay2.default, {
+          date: datesForWeek[i],
+          selected: _this2.state.datesSelectedForWeek[i],
+          enabled: enabled,
+          showDayName: _this2.props.showDayName,
+          showDayNumber: _this2.props.showDayNumber,
+          onDateSelected: function onDateSelected() {
+            return enabled && _this2.onDateSelected(datesForWeek[i]);
+          },
+          calendarColor: _this2.props.calendarColor,
+          dateNameStyle: _this2.props.dateNameStyle,
+          dateNumberStyle: _this2.props.dateNumberStyle,
+          weekendDateNameStyle: _this2.props.weekendDateNameStyle,
+          weekendDateNumberStyle: _this2.props.weekendDateNumberStyle,
+          highlightDateNameStyle: _this2.props.highlightDateNameStyle,
+          highlightDateNumberStyle: _this2.props.highlightDateNumberStyle,
+          disabledDateNameStyle: _this2.props.disabledDateNameStyle,
+          disabledDateNumberStyle: _this2.props.disabledDateNumberStyle,
+          disabledDateOpacity: _this2.props.disabledDateOpacity,
+          styleWeekend: _this2.props.styleWeekend,
+          daySelectionAnimation: _this2.props.daySelectionAnimation,
+          customStyle: _this2.state.datesCustomStylesForWeek[i],
+          size: _this2.state.dayComponentWidth,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 502
+          }
+        });
+        datesRender.push(_this2.props.calendarAnimation ? _react3.default.createElement(
+          _reactNative.Animated.View,
+          {
+            key: i,
+            style: { opacity: _this2.animatedValue[i], flex: 1 },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 527
+            }
+          },
+          calendarDay
+        ) : _react3.default.createElement(
+          _reactNative.View,
+          { key: i, style: { flex: 1 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 533
+            }
+          },
+          calendarDay
+        ));
+      };
+
+      for (var i = 0; i < datesForWeek.length; i++) {
+        _loop(i);
+      }
+
+      var calendarHeader = this.props.showMonth && _react3.default.createElement(_CalendarHeader2.default, {
+        calendarHeaderFormat: this.props.calendarHeaderFormat,
+        calendarHeaderStyle: this.props.calendarHeaderStyle,
+        datesForWeek: this.state.datesForWeek,
+        fontSize: this.state.monthFontSize,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 540
+        }
+      });
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          style: [_CalendarStyle2.default.calendarContainer, { backgroundColor: this.props.calendarColor }, this.props.style],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 550
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: [this.props.innerStyle, { height: this.state.height }],
+            onLayout: this.onLayout.bind(this),
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 557
+            }
+          },
+          this.props.showDate && calendarHeader,
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: _CalendarStyle2.default.datesStrip, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 562
+              }
+            },
+            _react3.default.createElement(_WeekSelector2.default, {
+              controlDate: this.props.minDate,
+              iconComponent: this.props.leftSelector,
+              iconContainerStyle: this.props.iconContainer,
+              iconInstanceStyle: this.props.iconLeftStyle,
+              iconStyle: this.props.iconStyle,
+              imageSource: this.props.iconLeft,
+              onPress: this.getPreviousWeek,
+              weekEndDate: this.state.datesForWeek[this.state.datesForWeek.length - 1],
+              weekStartDate: this.state.datesForWeek[0],
+              size: this.state.selectorSize,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 563
+              }
+            }),
+            this.props.showDate ? _react3.default.createElement(
+              _reactNative.View,
+              { style: _CalendarStyle2.default.calendarDates, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 579
+                }
+              },
+              datesRender
+            ) : calendarHeader,
+            _react3.default.createElement(_WeekSelector2.default, {
+              controlDate: this.props.maxDate,
+              iconComponent: this.props.rightSelector,
+              iconContainerStyle: this.props.iconContainer,
+              iconInstanceStyle: this.props.iconRightStyle,
+              iconStyle: this.props.iconStyle,
+              imageSource: this.props.iconRight,
+              onPress: this.getNextWeek,
+              weekEndDate: this.state.datesForWeek[this.state.datesForWeek.length - 1],
+              weekStartDate: this.state.datesForWeek[0],
+              size: this.state.selectorSize,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 584
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return CalendarStrip;
+}(_react2.Component), _class.propTypes = {
+  style: _propTypes2.default.any,
+  innerStyle: _propTypes2.default.any,
+  calendarColor: _propTypes2.default.string,
+
+  startingDate: _propTypes2.default.any,
+  selectedDate: _propTypes2.default.any,
+  onDateSelected: _propTypes2.default.func,
+  onWeekChanged: _propTypes2.default.func,
+  updateWeek: _propTypes2.default.bool,
+  useIsoWeekday: _propTypes2.default.bool,
+  minDate: _propTypes2.default.any,
+  maxDate: _propTypes2.default.any,
+  datesWhitelist: _propTypes2.default.array,
+  datesBlacklist: _propTypes2.default.array,
+
+  showMonth: _propTypes2.default.bool,
+  showDayName: _propTypes2.default.bool,
+  showDayNumber: _propTypes2.default.bool,
+  showDate: _propTypes2.default.bool,
+
+  leftSelector: _propTypes2.default.any,
+  rightSelector: _propTypes2.default.any,
+  iconLeft: _propTypes2.default.any,
+  iconRight: _propTypes2.default.any,
+  iconStyle: _propTypes2.default.any,
+  iconLeftStyle: _propTypes2.default.any,
+  iconRightStyle: _propTypes2.default.any,
+  iconContainer: _propTypes2.default.any,
+
+  maxDayComponentSize: _propTypes2.default.number,
+  minDayComponentSize: _propTypes2.default.number,
+  responsiveSizingOffset: _propTypes2.default.number,
+
+  calendarHeaderStyle: _propTypes2.default.any,
+  calendarHeaderFormat: _propTypes2.default.string,
+
+  calendarAnimation: _propTypes2.default.object,
+  daySelectionAnimation: _propTypes2.default.object,
+
+  customDatesStyles: _propTypes2.default.array,
+
+  dateNameStyle: _propTypes2.default.any,
+  dateNumberStyle: _propTypes2.default.any,
+  weekendDateNameStyle: _propTypes2.default.any,
+  weekendDateNumberStyle: _propTypes2.default.any,
+  highlightDateNameStyle: _propTypes2.default.any,
+  highlightDateNumberStyle: _propTypes2.default.any,
+  disabledDateNameStyle: _propTypes2.default.any,
+  disabledDateNumberStyle: _propTypes2.default.any,
+  disabledDateOpacity: _propTypes2.default.number,
+  styleWeekend: _propTypes2.default.bool,
+
+  locale: _propTypes2.default.object
+}, _class.defaultProps = {
+  useIsoWeekday: true,
+  showMonth: true,
+  showDate: true,
+  updateWeek: true,
+  iconLeft: require("./img/left-arrow-black.png"),
+  iconRight: require("./img/right-arrow-black.png"),
+  calendarHeaderFormat: "MMMM YYYY",
+  datesWhitelist: undefined,
+  datesBlacklist: undefined,
+  disabledDateOpacity: 0.3,
+  customDatesStyles: [],
+  responsiveSizingOffset: 0,
+  innerStyle: { flex: 1 },
+  maxDayComponentSize: 80,
+  minDayComponentSize: 10
+}, _temp));
+
+exports.default = CalendarStrip;

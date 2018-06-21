@@ -1,0 +1,49 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _HTTPClient = require("../HTTPClient");
+
+var _HTTPClient2 = _interopRequireDefault(_HTTPClient);
+
+var _reactNative = require("react-native");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AuthService = {
+    getAccessToken: function getAccessToken() {
+        return regeneratorRuntime.async(function getAccessToken$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem("@user").then(function (response) {
+                            var resp = JSON.parse(response);
+                            if (resp !== null && resp.hasOwnProperty("auth_token")) {
+                                return resp;
+                            } else {
+                                var e = new Error(400);
+                                e.response = "!IsAuthenticated";
+                                throw e;
+                            }
+                        }));
+
+                    case 2:
+                        return _context.abrupt("return", _context.sent);
+
+                    case 3:
+                    case "end":
+                        return _context.stop();
+                }
+            }
+        }, null, this);
+    },
+    login: function login(data) {
+        return _HTTPClient2.default.post("auth/login_client/", data);
+    },
+    getMe: function getMe(token) {
+        return _HTTPClient2.default.get("auth/get_me/", token);
+    }
+};
+
+exports.default = AuthService;

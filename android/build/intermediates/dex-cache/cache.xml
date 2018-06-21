@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-vector-icons/android/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
+        <dex dex="/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/pre-dexed/debug/classes_38e29b4e1d6000638e0ad18a140f1856fb0cba0c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2ebce48f48f293b89e9daf4669484f70b1a7a577">
+        <dex dex="/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e4d0f1f6bf3237f9e533fe4d3b00462c5afe773c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_36f2c934969044d02d20529ab1687c879b92493a/classes.dex" />
+    </item>
+
+</items>

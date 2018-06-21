@@ -1,0 +1,17 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _HTTPClient = require("../HTTPClient");
+
+var _HTTPClient2 = _interopRequireDefault(_HTTPClient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PlaceService = {
+    getCities: function getCities() {
+        return _HTTPClient2.default.get("cities/");
+    }
+};
+
+exports.default = PlaceService;

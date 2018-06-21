@@ -1,0 +1,4 @@
+dependencies: \
+  /Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native/React/Profiler/RCTProfileTrampoline-arm.S \
+  /Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native/React/Profiler/RCTMacros.h

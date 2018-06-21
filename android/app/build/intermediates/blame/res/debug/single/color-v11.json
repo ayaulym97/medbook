@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    }
+]

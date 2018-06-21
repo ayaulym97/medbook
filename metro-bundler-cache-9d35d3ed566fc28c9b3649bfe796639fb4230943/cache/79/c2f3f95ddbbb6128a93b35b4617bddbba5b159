@@ -1,0 +1,32 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNavigation = require('react-navigation');
+
+var _doctorProfile = require('./doctorProfile');
+
+var _doctorProfile2 = _interopRequireDefault(_doctorProfile);
+
+var _searchDoctor = require('./searchDoctor');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var searchDoctorNavigator = (0, _reactNavigation.StackNavigator)({
+    searchDoctor: {
+        screen: _searchDoctor.SearchDoctor,
+        header: 'none'
+    },
+    doctorProfile: {
+        screen: _doctorProfile2.default,
+        navigationOptions: {
+            headerMode: 'none'
+        }
+    }
+});
+
+exports.default = searchDoctorNavigator;

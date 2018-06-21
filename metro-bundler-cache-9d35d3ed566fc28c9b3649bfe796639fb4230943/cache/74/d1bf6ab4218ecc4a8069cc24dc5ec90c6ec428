@@ -1,0 +1,222 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Panel = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/config/Panel.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _theme = require('./theme');
+
+var _reactNative = require('react-native');
+
+var _scale = require('./scale');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    Panel: {
+        displayName: 'Panel'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/config/Panel.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var Panel = exports.Panel = _wrapComponent('Panel')(function (_React$Component) {
+    _inherits(Panel, _React$Component);
+
+    function Panel(props) {
+        _classCallCheck(this, Panel);
+
+        var _this = _possibleConstructorReturn(this, (Panel.__proto__ || Object.getPrototypeOf(Panel)).call(this, props));
+
+        _this.icons = {
+            'up': require('../assets/icons/sort-up.png'),
+            'down': require('../assets/icons/sort-down.png')
+        };
+
+        _this.state = {
+            title: props.title,
+            image: props.image,
+            expanded: false,
+            animation: new _reactNative.Animated.Value()
+        };
+        return _this;
+    }
+
+    _createClass(Panel, [{
+        key: 'toggle',
+        value: function toggle() {
+            var initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
+                finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
+
+            this.setState({
+                expanded: !this.state.expanded
+            });
+
+            this.state.animation.setValue(initialValue);
+            _reactNative.Animated.spring(this.state.animation, {
+                toValue: finalValue
+            }).start();
+        }
+    }, {
+        key: '_setMaxHeight',
+        value: function _setMaxHeight(event) {
+            this.setState({
+                maxHeight: event.nativeEvent.layout.height
+            });
+        }
+    }, {
+        key: '_setMinHeight',
+        value: function _setMinHeight(event) {
+            this.setState({
+                minHeight: event.nativeEvent.layout.height
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var icon = this.icons['down'];
+
+            if (this.state.expanded) {
+                icon = this.icons['up'];
+            }
+            return _react3.default.createElement(
+                _reactNative.Animated.View,
+                {
+                    style: [styles.container, { height: this.state.animation }], __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 58
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.TouchableOpacity,
+                    { onPress: this.toggle.bind(this), __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 60
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.titleContainer, onLayout: this._setMinHeight.bind(this), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 61
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.Image, { style: styles.iconImage, source: this.state.image, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 62
+                            }
+                        }),
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.title, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 63
+                                }
+                            },
+                            this.state.title
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.TouchableOpacity,
+                            {
+                                onPress: this.toggle.bind(this),
+                                underlayColor: '#f1f1f1', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 64
+                                }
+                            },
+                            _react3.default.createElement(_reactNative.Image, {
+                                style: styles.buttonImage,
+                                source: icon, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 67
+                                }
+                            })
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 74
+                        }
+                    },
+                    this.state.expanded && _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.body, onLayout: this._setMaxHeight.bind(this), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 76
+                            }
+                        },
+                        this.props.children
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Panel;
+}(_react3.default.Component));
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        backgroundColor: '#fff',
+        overflow: 'hidden'
+    },
+    titleContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomColor: _theme.Medbook.colors.screen.six,
+        borderBottomWidth: 1
+    },
+    title: {
+        flex: 1,
+        fontSize: _theme.Medbook.fonts.sizes.p5,
+        padding: 10,
+        color: _theme.Medbook.colors.text.first,
+        fontWeight: 'bold'
+    },
+    buttonImage: {
+        width: 10,
+        height: 6
+    },
+    body: {
+        padding: 10,
+        paddingTop: 0
+    },
+    iconImage: {
+        marginLeft: 10,
+        height: (0, _scale.scale)(16),
+        width: (0, _scale.scale)(16)
+    }
+});

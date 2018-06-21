@@ -1,0 +1,64 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var staticValues = exports.staticValues = {
+    REQUEST_TYPES: [{
+        type: 0,
+        consultation: 2,
+        name: "doctorHour",
+        text: "Консультация у врача",
+        placeholder: "Введите специальность врача",
+        img: "/assets/images/icons/64/doctorhour_white.png"
+    }, {
+        type: 1,
+        name: "procedure",
+        text: "Медицинские процедуры",
+        placeholder: "Введите название обследования или процедуры",
+        img: "/assets/images/icons/64/procedure_white.png"
+    }, {
+        type: 2,
+        name: "medTest",
+        text: "Обследования и анализы",
+        placeholder: "Введите вид медицинского анализа или теста",
+        img: "/assets/images/icons/64/medtest_white.png"
+    }],
+    AT_HOME: [{
+        name: "На дому",
+        type: 3
+    }, {
+        name: "В клинике",
+        type: 0
+    }],
+    LIST_OF_CATEGORY: [{
+        id: 0,
+        name: 'Все'
+    }, {
+        id: 1,
+        name: 'Вторая'
+    }, {
+        id: 2,
+        name: 'Первая'
+    }, {
+        id: 3,
+        name: 'Высшая'
+    }, {
+        id: 4,
+        name: 'КМН'
+    }, {
+        id: 5,
+        name: 'ДМН'
+    }, {
+        id: 6,
+        name: 'Проффессор'
+    }, {
+        id: 7,
+        name: 'Доцент'
+    }],
+    locale: {
+        name: 'ru',
+        config: {
+            months: "Январь_Февраль_Март_Апрель_Май_Июнь_Июль_Август_Сентябрь_Октябрь_Ноябрь_Декабрь".split("_"),
+            weekdaysShort: "Вc_Пн_Вт_Ср_Чт_Пт_Сб".split("_")
+        }
+    }
+};

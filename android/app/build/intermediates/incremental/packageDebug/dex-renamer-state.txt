@@ -1,0 +1,7 @@
+#Mon Nov 20 19:31:20 ALMT 2017
+base.0=/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_36f2c934969044d02d20529ab1687c879b92493a
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e4d0f1f6bf3237f9e533fe4d3b00462c5afe773c/classes.dex
+base.1=/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e4d0f1f6bf3237f9e533fe4d3b00462c5afe773c
+file.0=/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_36f2c934969044d02d20529ab1687c879b92493a/classes.dex

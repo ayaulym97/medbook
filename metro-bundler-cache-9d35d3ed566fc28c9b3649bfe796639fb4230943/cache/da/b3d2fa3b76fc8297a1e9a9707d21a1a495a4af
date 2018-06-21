@@ -1,0 +1,598 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Authorization = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/screens/auth/auth.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _theme = require('../../config/theme');
+
+var _reactNative = require('react-native');
+
+var _reactNativeKeyboardAwareScrollView = require('react-native-keyboard-aware-scroll-view');
+
+var _scale = require('../../config/scale');
+
+var _reactNativeElements = require('react-native-elements');
+
+var _reactNativeMaskedText = require('react-native-masked-text');
+
+var _AuthService = require('../../data/services/AuthService');
+
+var _AuthService2 = _interopRequireDefault(_AuthService);
+
+var _reactNavigation = require('react-navigation');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    Authorization: {
+        displayName: 'Authorization'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/ayaulymalzhan/WebstormProjects/medbookapp/app/screens/auth/auth.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var Authorization = exports.Authorization = _wrapComponent('Authorization')(function (_React$Component) {
+    _inherits(Authorization, _React$Component);
+
+    function Authorization(props) {
+        _classCallCheck(this, Authorization);
+
+        var _this = _possibleConstructorReturn(this, (Authorization.__proto__ || Object.getPrototypeOf(Authorization)).call(this, props));
+
+        _this.press = function () {
+            _this.setState({
+                checked: !_this.state.checked
+            });
+        };
+
+        _this.state = {
+            phone: "",
+            modalVisible: false,
+            checked: false,
+            text: "",
+            name: "",
+            surname: ""
+        };
+        return _this;
+    }
+
+    _createClass(Authorization, [{
+        key: 'setModalVisible',
+        value: function setModalVisible(visible) {
+            this.setState({ modalVisible: visible });
+        }
+    }, {
+        key: 'submit',
+        value: function submit() {
+            var _this2 = this;
+
+            if (this.state.name === "" || this.state.surname === "" || this.state.phone === "") {
+                _reactNative.Alert.alert("Пожалуйста заполните все данные!");
+                return false;
+            }
+            if (this.state.checked === false) {
+                _reactNative.Alert.alert("Вы не согласны с условиями и правилами!");
+                return false;
+            }
+            var resetActionLogIn = _reactNavigation.NavigationActions.reset({
+                index: 0,
+                key: null,
+                actions: [_reactNavigation.NavigationActions.navigate({ routeName: 'Home' })]
+            });
+            var phone = "+7" + this.state.phone.replace(/[-()]/g, "");
+            _AuthService2.default.login({ username: phone, full_name: this.state.surname + ' ' + this.state.name }).then(function (response) {
+                _reactNative.AsyncStorage.setItem('@user', JSON.stringify(response));
+                _this2.props.navigation.dispatch(resetActionLogIn);
+            }, function (error) {
+                console.log(error.response, "ERROR");
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            var navigate = this.props.navigation.navigate;
+
+            return _react3.default.createElement(
+                _reactNativeKeyboardAwareScrollView.KeyboardAwareScrollView,
+                {
+                    contentContainerStyle: styles.container,
+                    keyboardShouldPersistTaps: 'always',
+                    keyboardDismissMode: 'interactive',
+                    extraScrollHeight: 80,
+                    extraHeight: 20,
+                    enableOnAndroid: true,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 61
+                    }
+                },
+                _react3.default.createElement(
+                    _reactNative.Modal,
+                    {
+                        animationType: "slide",
+                        transparent: false,
+                        visible: this.state.modalVisible,
+                        onRequestClose: function onRequestClose() {
+                            alert("Modal has been closed.");
+                        },
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 70
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.container, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 76
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: styles.modalHeader, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 77
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                { onPress: function onPress() {
+                                        _this3.setModalVisible(!_this3.state.modalVisible);
+                                    }, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 78
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, { style: styles.back,
+                                    source: require('../../assets/icons/back.png'), __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 80
+                                    }
+                                })
+                            )
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: styles.modalBlock, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 85
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                { style: styles.secondTxt, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 86
+                                    }
+                                },
+                                '\u0423\u0421\u041B\u041E\u0412\u0418\u042F \u0418 \u041F\u0420\u0410\u0412\u0418\u041B\u0410'
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                { style: [styles.txtInput, styles.modalScroll], __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 87
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.ScrollView,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 88
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        { style: styles.modalTxt, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 89
+                                            }
+                                        },
+                                        'Terms and Conditions are a set of rules and guidelines that a user must agree to in order to use your website or mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app.It acts as a legal contract between you Terms and Conditions are a set of rules and guidelines that a user must agree to in order to use your website or mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app.It acts as a legal contract between you Terms and Conditions are a set of rules and guidelines that a user must agree to in order to use your website or mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app.It acts as a legal contract between you Terms and Conditions are a set of rules and guidelines that a user must agree to in order to use your website or mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app. It acts as a legal contract between you (the company) who has the website or mobile app and the user who access your website and mobile app.It acts as a legal contract between you'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.header, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 121
+                        }
+                    },
+                    _react3.default.createElement(_reactNative.Image, { style: styles.logo, source: require('../../assets/icons/3va.png'), __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 122
+                        }
+                    }),
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.firstTxt, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 123
+                            }
+                        },
+                        '\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u0410\u0426\u0418\u042F'
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.mainBlock, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 126
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.mainBlockRow, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 127
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.thirdTxt, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 128
+                                }
+                            },
+                            '\u041D\u041E\u041C\u0415\u0420 \u0422\u0415\u041B\u0415\u0424\u041E\u041D\u0410'
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            { style: styles.viewInside, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 129
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                { style: [styles.txtInput, styles.num], __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 130
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    { style: styles.txtInputStyle, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 131
+                                        }
+                                    },
+                                    '+7'
+                                )
+                            ),
+                            _react3.default.createElement(_reactNativeMaskedText.TextInputMask, {
+                                underlineColorAndroid: 'transparent',
+                                type: 'custom',
+                                keyboardType: 'numeric',
+                                maxLength: 15,
+                                style: [styles.txtInput, styles.txtInputStyle, styles.phoneTxtInput, { paddingLeft: (0, _scale.scale)(15) }],
+                                value: this.state.phone,
+                                onChangeText: function onChangeText(text) {
+                                    return _this3.setState({ phone: text });
+                                },
+                                options: { mask: '(999)-999-99-99' },
+                                placeholder: '(_ _ _)  _ _ _  _ _  _ _', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 133
+                                }
+                            })
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.mainBlockRow, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 146
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.thirdTxt, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 147
+                                }
+                            },
+                            '\u0418\u041C\u042F'
+                        ),
+                        _react3.default.createElement(_reactNative.TextInput, {
+                            underlineColorAndroid: 'transparent',
+                            maxLength: 15,
+                            style: [styles.txtInput, styles.txtInputStyle, { paddingLeft: (0, _scale.scale)(15) }],
+                            placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u0430\u0448\u0435 \u0438\u043C\u044F',
+                            onChangeText: function onChangeText(text) {
+                                return _this3.setState({ name: text });
+                            },
+                            value: this.state.name,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 148
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.mainBlockRow, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 158
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.thirdTxt, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 159
+                                }
+                            },
+                            '\u0424\u0410\u041C\u0418\u041B\u0418\u042F'
+                        ),
+                        _react3.default.createElement(_reactNative.TextInput, {
+                            underlineColorAndroid: 'transparent',
+                            maxLength: 15,
+                            style: [styles.txtInput, styles.txtInputStyle, { paddingLeft: (0, _scale.scale)(15) }],
+                            placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u0430\u0448\u0443 \u0444\u0430\u043C\u0438\u043B\u0438\u044E',
+                            onChangeText: function onChangeText(text) {
+                                return _this3.setState({ surname: text });
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 160
+                            }
+                        })
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.checkbox, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 170
+                        }
+                    },
+                    _react3.default.createElement(_reactNativeElements.CheckBox, {
+                        onPress: this.press,
+                        checked: this.state.checked,
+                        containerStyle: styles.checkBoxs,
+                        checkedColor: 'rgb(0, 201, 182)',
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 171
+                        }
+                    }),
+                    _react3.default.createElement(
+                        _reactNative.TouchableOpacity,
+                        { style: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }, onPress: function onPress() {
+                                _this3.setModalVisible(true);
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 177
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.checkboxTxt, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 178
+                                }
+                            },
+                            '\u0421\u041E\u0413\u041B\u0410\u0421\u0415\u041D \u0421'
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: [styles.checkboxTxt, styles.checkboxTxtUnderline], __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 178
+                                }
+                            },
+                            ' \u0423\u0421\u041BO\u0412\u0418\u042F\u041C\u0418 \u0418 \u041F\u0420\u0410\u0412\u0418\u041B\u0410\u041C\u0418'
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactNative.View,
+                    { style: { height: '20%' }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 181
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.TouchableOpacity,
+                        { style: styles.btn, onPress: function onPress() {
+                                _this3.submit();
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 182
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.Text,
+                            { style: styles.btnTxt, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 183
+                                }
+                            },
+                            '\u041F\u041E\u0414\u0422\u0412\u0415\u0420\u0414\u0418\u0422\u042C'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Authorization;
+}(_react3.default.Component));
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
+    modalHeader: {
+        flexDirection: 'column',
+        paddingTop: (0, _scale.scale)(40)
+    },
+    header: {
+        height: '20%',
+        flexDirection: 'column',
+        marginTop: (0, _scale.scale)(15),
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    back: {
+        marginLeft: (0, _scale.scale)(18)
+    },
+    logo: {
+        height: (0, _scale.scale)(22.5),
+        width: (0, _scale.scale)(37.1)
+    },
+    mainBlock: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        marginHorizontal: '10%',
+        paddingTop: (0, _scale.scale)(30),
+        backgroundColor: 'white'
+    },
+    modalBlock: {
+        flexDirection: 'column',
+        marginTop: (0, _scale.scale)(30),
+        marginHorizontal: (0, _scale.scale)(40)
+    },
+    txtInputStyle: {
+        fontSize: _theme.Medbook.fonts.sizes.p0,
+        color: _theme.Medbook.colors.text.first,
+        fontWeight: '300'
+    },
+    firstTxt: {
+        fontSize: _theme.Medbook.fonts.sizes.p0,
+        fontWeight: 'bold',
+        paddingTop: (0, _scale.scale)(15),
+        color: _theme.Medbook.colors.textFourth,
+        textAlign: 'center'
+    },
+    secondTxt: {
+        fontSize: _theme.Medbook.fonts.sizes.p1,
+        paddingTop: (0, _scale.scale)(15),
+        fontWeight: 'bold',
+        color: _theme.Medbook.colors.textFourth,
+        textAlign: 'center'
+    },
+    mainBlockRow: {
+        marginTop: (0, _scale.scale)(12)
+
+    },
+    thirdTxt: {
+        fontSize: _theme.Medbook.fonts.sizes.p7,
+        fontWeight: 'bold',
+        color: _theme.Medbook.colors.textFourth,
+        marginBottom: (0, _scale.scale)(5)
+    },
+    viewInside: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    unchecked: {
+        width: (0, _scale.scale)(20),
+        height: (0, _scale.scale)(20),
+        borderWidth: 1,
+        borderColor: 'red'
+    },
+    btn: {
+        height: (0, _scale.scale)(50),
+        marginHorizontal: (0, _scale.scale)(40),
+
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: (0, _scale.scale)(30),
+        backgroundColor: _theme.Medbook.colors.backgroundThird
+    },
+    btnTxt: {
+        color: 'white',
+        fontSize: _theme.Medbook.fonts.sizes.p2,
+        fontWeight: '500'
+    },
+    checkbox: {
+        marginVertical: (0, _scale.scale)(10),
+        flexDirection: 'row'
+    },
+    checkboxTxt: {
+        fontWeight: '700',
+        fontSize: _theme.Medbook.fonts.sizes.p6,
+        color: _theme.Medbook.colors.textFourth
+    },
+    checkboxTxtUnderline: {
+        color: _theme.Medbook.colors.textSecond,
+        textDecorationLine: 'underline'
+    },
+    modalScroll: {
+        height: '82%',
+        marginTop: (0, _scale.scale)(10)
+    },
+    modalTxt: {
+        fontSize: _theme.Medbook.fonts.sizes.p4,
+        fontWeight: '100',
+        margin: (0, _scale.scale)(10),
+        color: _theme.Medbook.colors.textFourth
+    },
+    phoneTxtInput: {
+        width: '75%',
+        fontSize: _theme.Medbook.fonts.sizes.p0
+    },
+    txtInput: {
+        height: (0, _scale.scale)(48),
+        borderRadius: 3,
+        borderColor: _theme.Medbook.colors.border.txtInput,
+        borderWidth: 1,
+        shadowColor: _theme.Medbook.colors.shadow.base,
+        shadowOpacity: 0.9,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 1,
+            width: 0
+        }
+    },
+    num: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '20%'
+    },
+    checkBoxs: {
+        marginLeft: (0, _scale.scale)(35),
+        width: (0, _scale.scale)(45),
+        backgroundColor: 'white',
+        borderColor: 'white'
+    }
+});

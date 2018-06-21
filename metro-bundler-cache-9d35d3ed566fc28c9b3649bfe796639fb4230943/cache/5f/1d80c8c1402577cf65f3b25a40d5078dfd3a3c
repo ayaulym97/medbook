@@ -1,0 +1,7 @@
+module.exports = [{
+    "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+    "source": "/Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/res/drawable-v21/abc_btn_colored_material.xml"
+}, {
+    "merged": "/Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+    "source": "/Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+}];

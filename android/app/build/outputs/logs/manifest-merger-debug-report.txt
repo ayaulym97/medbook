@@ -1,0 +1,101 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:1:1-35:12
+	package
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:2:5-29
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:4:5-30
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:7:5-77
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/ayaulymalzhan/.android/build-cache/6d4ba2e197b360f6b50c37445e4eb8517e80422d/output/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:7:22-75
+uses-sdk
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:9:5-11:41
+MERGED from [threevaapp:react-native-vector-icons:unspecified] /Users/ayaulymalzhan/WebstormProjects/medbookapp/node_modules/react-native-vector-icons/android/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/ayaulymalzhan/.android/build-cache/6d4ba2e197b360f6b50c37445e4eb8517e80422d/output/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/ayaulymalzhan/.android/build-cache/cbe73e0df76815133fb0f11b8448fd0a0460668a/output/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/ayaulymalzhan/.android/build-cache/3d7abfe1b79623094a5b42c1516e499c0de7cab7/output/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/ayaulymalzhan/.android/build-cache/f560794428c91b08a31b873d539f87013abd824d/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/ayaulymalzhan/.android/build-cache/174f07877e5794ded292190c480bc455e5d79a23/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/ayaulymalzhan/.android/build-cache/3d7dbb1b348091313704340d4014df6fa0217e3f/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/ayaulymalzhan/.android/build-cache/efa8c1f3675cbf5e10f5121337210280d76f5b1b/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/ayaulymalzhan/.android/build-cache/36ea9fac661a8182c4d528231e9c7f2a22061116/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/ayaulymalzhan/.android/build-cache/f96e1852abd355e68ce8b849e749193f9e639cc5/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/ayaulymalzhan/.android/build-cache/211b7e49731050965aedf62a218b5a8bafb318f9/output/AndroidManifest.xml:2:3-70
+	android:targetSdkVersion
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:11:9-38
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:10:9-35
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml
+application
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:13:5-33:19
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/ayaulymalzhan/.android/build-cache/6d4ba2e197b360f6b50c37445e4eb8517e80422d/output/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/ayaulymalzhan/.android/build-cache/65c3ace9503ff71e5bf1683656f985af1f4e597a/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/ayaulymalzhan/.android/build-cache/cbe73e0df76815133fb0f11b8448fd0a0460668a/output/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/ayaulymalzhan/.android/build-cache/211b7e49731050965aedf62a218b5a8bafb318f9/output/AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/ayaulymalzhan/.android/build-cache/259838a10a1ed3b921906cda9cb158a415ceb2c7/output/AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:16:7-39
+	android:allowBackup
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:15:7-33
+	android:icon
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:17:7-46
+	android:theme
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:18:7-38
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:14:7-38
+activity#com.threevaapp.SplashScreenActivity
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:19:7-30:18
+	android:screenOrientation
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:24:11-47
+	android:label
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:21:11-43
+	android:windowSoftInputMode
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:23:11-50
+	android:configChanges
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:22:11-81
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:20:11-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:26:9-29:25
+action#android.intent.action.MAIN
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:27:13-65
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:27:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:28:13-73
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:28:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:31:7-84
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:31:17-81
+activity#com.threevaapp.MainActivity
+ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:32:9-59
+	android:name
+		ADDED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:32:19-47
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:1:1-35:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:1:1-35:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /Users/ayaulymalzhan/WebstormProjects/medbookapp/android/app/src/main/AndroidManifest.xml:1:1-35:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
